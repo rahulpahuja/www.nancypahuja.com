@@ -34,11 +34,250 @@
                 "on-primary": "#ffffff",
                 "primary-container": "#ffffff",
                 "on-primary-container": "#747676",
-                "inverse-primary": "#c6c6c7",
                 "secondary": "#81524d",
-                "on-secondary": "#ffffff",
-                "secondary-container": "#fec0b9",
-                "on-secondary-container": "#7a4c46",
-                "tertiary": "#795559",
-                "on-tertiary": "#ffffff",
-                "tertiary
+                "background": "#fff8f7"
+            },
+            "fontFamily": {
+                "h1": ["Noto Serif"],
+                "h2": ["Noto Serif"],
+                "h3": ["Noto Serif"],
+                "body-lg": ["Plus Jakarta Sans"],
+                "body-md": ["Plus Jakarta Sans"],
+                "label-caps": ["Plus Jakarta Sans"],
+                "button": ["Plus Jakarta Sans"]
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        body {
+            background-color: #fff8f7;
+            color: #3e0217;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            margin: 0;
+            padding: 0;
+        }
+        .noto-serif { font-family: 'Noto Serif', serif; }
+        .plus-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #fff0f1; }
+        ::-webkit-scrollbar-thumb { background: #ffcdd6; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #d98891; }
+
+        /* Hardcoded Loader Styles to ensure it works BEFORE Tailwind loads */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #fff8f7;
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+        }
+
+        .loader-hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+
+        /* Star Drop Effect for each letter */
+        .drop-star {
+            animation: dropStarAnim 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            opacity: 0;
+            display: inline-block;
+        }
+
+        @keyframes dropStarAnim {
+            0% { 
+                transform: translateY(-80px) scale(0.4); 
+                opacity: 0; 
+                text-shadow: 0 0 25px #81524d; 
+            }
+            50% { 
+                opacity: 1; 
+                text-shadow: 0 0 15px #81524d; 
+            }
+            100% { 
+                transform: translateY(0) scale(1); 
+                opacity: 1; 
+                text-shadow: 0 0 0px transparent; 
+            }
+        }
+
+        /* Typewriter Cursor */
+        .type-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.1em;
+            background-color: #81524d;
+            margin-left: 6px;
+            vertical-align: text-bottom;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+
+    <div id="loader">
+        <div style="text-align: center;">
+            <h2 class="text-h2 sm:text-h1 noto-serif text-secondary tracking-[0.15em] sm:tracking-[0.2em] whitespace-nowrap" style="color: #81524d; font-family: 'Noto Serif', serif; font-size: 36px; letter-spacing: 0.15em;">
+                <span id="typewriter"></span><span class="type-cursor" id="cursor"></span>
+            </h2>
+        </div>
+    </div>
+
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center mix-blend-difference text-white">
+        <a href="/" class="text-label-caps font-semibold tracking-[0.2em] uppercase text-xs">Nancy Pahuja</a>
+        <button class="material-symbols-outlined">menu</button>
+    </nav>
+
+    <main class="max-w-[1440px] mx-auto">
+        <section class="min-h-screen flex flex-col items-center justify-center px-6 py-20">
+            <div class="max-w-4xl text-center space-y-8 animate-fade-in">
+                <span class="text-label-caps text-secondary font-semibold uppercase tracking-widest text-xs">Our Philosophy</span>
+                <h1 class="text-4xl md:text-5xl noto-serif leading-tight">A Symphony of Silk and Story</h1>
+                <p class="text-lg plus-jakarta max-w-2xl mx-auto text-on-surface-variant">
+                    At Nancy Pahuja, we believe that every thread holds a narrative. Our journey is one of rediscovering the silent poetry of South Asian textile arts, where every stitch is a tribute to heritage and every fabric a canvas for modern grace.
+                </p>
+                <div class="pt-8">
+                    <div class="w-[1px] h-24 bg-surface-dim mx-auto"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="px-6 py-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 rounded-lg overflow-hidden shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=1200" 
+                         alt="Spools of fine silk thread" 
+                         class="w-full aspect-[16/9] object-cover hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="lg:col-span-5 lg:pl-12 space-y-6">
+                    <span class="text-label-caps text-secondary font-semibold uppercase text-xs">The Foundation</span>
+                    <h2 class="text-3xl noto-serif">The Loom and the Thread</h2>
+                    <p class="text-base plus-jakarta text-on-surface-variant leading-relaxed">
+                        We source the finest, most breathable lawn fabrics—a staple of South Asian summers—known for their airy lightness and incredible durability. Each yard is woven on traditional looms, preserving a tactile quality that machines simply cannot replicate.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="flex items-center justify-center py-12">
+            <div class="h-[1px] w-1/4 bg-surface-container-high"></div>
+            <span class="material-symbols-outlined px-8 text-surface-dim">spa</span>
+            <div class="h-[1px] w-1/4 bg-surface-container-high"></div>
+        </div>
+
+        <section class="px-6 py-20 bg-surface-container-low">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 space-y-4">
+                    <span class="text-label-caps text-secondary font-semibold uppercase text-xs">Craftsmanship</span>
+                    <h2 class="text-3xl noto-serif">The Art of the Needle</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="space-y-8">
+                        <div class="rounded-lg overflow-hidden bg-white p-4 shadow-sm">
+                            <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Intricate embroidery detail" 
+                                 class="w-full aspect-square object-cover rounded-md">
+                        </div>
+                        <h3 class="text-2xl noto-serif">Intricate Embellishments</h3>
+                        <p class="text-base text-on-surface-variant">
+                            Our embroidery is not merely a decoration; it is an inheritance. Artisans with generations of experience hand-apply delicate beadwork and silk threads.
+                        </p>
+                    </div>
+                    <div class="space-y-8 md:pt-24">
+                        <div class="rounded-lg overflow-hidden bg-white p-4 shadow-sm">
+                            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Artisan hands at work" 
+                                 class="w-full aspect-square object-cover rounded-md">
+                        </div>
+                        <h3 class="text-2xl noto-serif">Silent Mastery</h3>
+                        <p class="text-base text-on-surface-variant">
+                            A single piece can take upwards of forty hours to complete. This slow fashion approach ensures we curate wearable art that transcends seasonal trends.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="px-6 py-20 mb-20">
+            <div class="relative h-[600px] rounded-xl overflow-hidden flex items-center justify-center text-center text-white">
+                <img src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&q=80&w=1600" 
+                     alt="Ethereal collection background" 
+                     class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/30"></div>
+                <div class="relative z-10 max-w-2xl space-y-8">
+                    <h2 class="text-4xl noto-serif">Experience the Collection</h2>
+                    <p class="text-lg plus-jakarta">
+                        Discover the full range of our artisanal lawn suits.
+                    </p>
+                    <button class="bg-secondary text-white px-12 py-4 rounded-full text-sm font-semibold uppercase tracking-widest hover:bg-[#3e0217] transition-colors duration-300 cursor-pointer">
+                        View Lookbook
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const text = "NANCY PAHUJA";
+            const container = document.getElementById('typewriter');
+            const loader = document.getElementById('loader');
+            const cursor = document.getElementById('cursor');
+            let i = 0;
+            const speed = 120; // Time in ms between each keystroke drop
+            
+            // FAILSAVE: No matter what happens, remove the loader entirely after 4 seconds
+            // This prevents your website from ever getting stuck.
+            const failsafeTimer = setTimeout(() => {
+                if(loader) loader.classList.add('loader-hidden');
+            }, 4000);
+
+            function typeWriter() {
+                try {
+                    if (i < text.length) {
+                        let span = document.createElement('span');
+                        
+                        if (text.charAt(i) === ' ') {
+                            span.innerHTML = '&nbsp;'; // Safe space character
+                        } else {
+                            span.innerText = text.charAt(i);
+                            span.className = 'drop-star';
+                        }
+                        
+                        container.appendChild(span);
+                        i++;
+                        setTimeout(typeWriter, speed);
+                    } else {
+                        // Sequence finished naturally
+                        setTimeout(() => { if(cursor) cursor.style.display = 'none'; }, 800);
+                        setTimeout(() => { if(loader) loader.classList.add('loader-hidden'); }, 1400);
+                    }
+                } catch (e) {
+                    // If any error occurs, kill the loader immediately so you can see the site
+                    console.error("Animation error:", e);
+                    if(loader) loader.classList.add('loader-hidden');
+                }
+            }
+            
+            setTimeout(typeWriter, 300);
+        });
+    </script>
+</body>
+</html>
