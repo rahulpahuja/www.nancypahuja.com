@@ -45,6 +45,9 @@
                 "body-md": ["Plus Jakarta Sans"],
                 "label-caps": ["Plus Jakarta Sans"],
                 "button": ["Plus Jakarta Sans"]
+            },
+            "animation": {
+                'ping-slow': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
             }
           }
         }
@@ -146,13 +149,27 @@
     </nav>
 
     <main class="max-w-[1440px] mx-auto">
-        <section class="min-h-screen flex flex-col items-center justify-center px-6 py-20">
-            <div class="max-w-4xl text-center space-y-8 animate-fade-in">
+        <section class="min-h-screen flex flex-col items-center justify-center px-6 py-20 relative">
+            <div class="max-w-4xl text-center space-y-8 animate-fade-in z-10">
                 <span class="text-label-caps text-secondary font-semibold uppercase tracking-widest text-xs">Our Philosophy</span>
                 <h1 class="text-4xl md:text-5xl noto-serif leading-tight">A Symphony of Silk and Story</h1>
                 <p class="text-lg plus-jakarta max-w-2xl mx-auto text-on-surface-variant">
                     At Nancy Pahuja, we believe that every thread holds a narrative. Our journey is one of rediscovering the silent poetry of South Asian textile arts, where every stitch is a tribute to heritage and every fabric a canvas for modern grace.
                 </p>
+                
+                <div class="pt-8 pb-4">
+                    <div class="relative inline-flex items-center justify-center">
+                        <div class="absolute inset-0 rounded-full border border-secondary opacity-30 animate-ping-slow"></div>
+                        <div class="absolute inset-[-12px] rounded-full border border-secondary opacity-10 animate-pulse"></div>
+                        
+                        <div class="relative bg-background px-10 py-4 rounded-full border border-secondary/30 shadow-sm">
+                            <span class="text-label-caps text-secondary font-semibold uppercase tracking-[0.3em] text-xs">
+                                Coming Soon
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="pt-8">
                     <div class="w-[1px] h-24 bg-surface-dim mx-auto"></div>
                 </div>
@@ -215,24 +232,39 @@
             </div>
         </section>
 
-        <section class="px-6 py-20 mb-20">
+        <section class="px-6 py-20 mb-10">
             <div class="relative h-[600px] rounded-xl overflow-hidden flex items-center justify-center text-center text-white">
                 <img src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&q=80&w=1600" 
                      alt="Ethereal collection background" 
                      class="absolute inset-0 w-full h-full object-cover">
-                <div class="absolute inset-0 bg-black/30"></div>
-                <div class="relative z-10 max-w-2xl space-y-8">
-                    <h2 class="text-4xl noto-serif">Experience the Collection</h2>
+                <div class="absolute inset-0 bg-black/40"></div>
+                <div class="relative z-10 max-w-2xl space-y-8 px-4">
+                    <h2 class="text-4xl noto-serif">The Collection is Brewing</h2>
                     <p class="text-lg plus-jakarta">
-                        Discover the full range of our artisanal lawn suits.
+                        Sign up for our newsletter to receive early access when the artisanal lookbook officially launches.
                     </p>
-                    <button class="bg-secondary text-white px-12 py-4 rounded-full text-sm font-semibold uppercase tracking-widest hover:bg-[#3e0217] transition-colors duration-300 cursor-pointer">
-                        View Lookbook
+                    <button class="bg-secondary text-white px-12 py-4 rounded-full text-sm font-semibold uppercase tracking-widest hover:bg-white hover:text-secondary transition-colors duration-300 cursor-pointer">
+                        Notify Me
                     </button>
                 </div>
             </div>
         </section>
     </main>
+
+    <footer class="bg-[#ffe9eb] py-12 px-6">
+        <div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
+            <div class="text-center md:text-left">
+                <h4 class="text-2xl noto-serif mb-2 text-[#3e0217]">Nancy Pahuja</h4>
+                <p class="text-xs uppercase tracking-[0.1em] font-semibold text-[#444748]">Artisanal DTC Platform</p>
+            </div>
+            <div class="flex space-x-12">
+                <a href="#" class="text-xs uppercase tracking-[0.1em] font-semibold text-[#3e0217] hover:text-[#81524d] transition-colors">Instagram</a>
+                <a href="#" class="text-xs uppercase tracking-[0.1em] font-semibold text-[#3e0217] hover:text-[#81524d] transition-colors">Journal</a>
+                <a href="#" class="text-xs uppercase tracking-[0.1em] font-semibold text-[#3e0217] hover:text-[#81524d] transition-colors">Privacy</a>
+            </div>
+            <p class="text-xs uppercase tracking-[0.1em] font-semibold text-[#3e0217] opacity-50">© 2026 Nancy Pahuja. All Rights Reserved.</p>
+        </div>
+    </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -241,10 +273,8 @@
             const loader = document.getElementById('loader');
             const cursor = document.getElementById('cursor');
             let i = 0;
-            const speed = 120; // Time in ms between each keystroke drop
+            const speed = 120; 
             
-            // FAILSAVE: No matter what happens, remove the loader entirely after 4 seconds
-            // This prevents your website from ever getting stuck.
             const failsafeTimer = setTimeout(() => {
                 if(loader) loader.classList.add('loader-hidden');
             }, 4000);
@@ -255,7 +285,7 @@
                         let span = document.createElement('span');
                         
                         if (text.charAt(i) === ' ') {
-                            span.innerHTML = '&nbsp;'; // Safe space character
+                            span.innerHTML = '&nbsp;'; 
                         } else {
                             span.innerText = text.charAt(i);
                             span.className = 'drop-star';
@@ -265,12 +295,10 @@
                         i++;
                         setTimeout(typeWriter, speed);
                     } else {
-                        // Sequence finished naturally
                         setTimeout(() => { if(cursor) cursor.style.display = 'none'; }, 800);
                         setTimeout(() => { if(loader) loader.classList.add('loader-hidden'); }, 1400);
                     }
                 } catch (e) {
-                    // If any error occurs, kill the loader immediately so you can see the site
                     console.error("Animation error:", e);
                     if(loader) loader.classList.add('loader-hidden');
                 }
