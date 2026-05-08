@@ -71,14 +71,14 @@
         ::-webkit-scrollbar-thumb { background: #ffcdd6; border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: #d98891; }
 
-        /* Hardcoded Loader Styles to ensure it works BEFORE Tailwind loads */
+        /* Hardcoded Loader Styles */
         #loader {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-color: #fff8f7;
+            background-color: #fff8f7; /* Matches screenshot background */
             z-index: 99999;
             display: flex;
             flex-direction: column;
@@ -104,11 +104,11 @@
             0% { 
                 transform: translateY(-80px) scale(0.4); 
                 opacity: 0; 
-                text-shadow: 0 0 25px #81524d; 
+                text-shadow: 0 0 20px rgba(62, 2, 23, 0.5); 
             }
             50% { 
                 opacity: 1; 
-                text-shadow: 0 0 15px #81524d; 
+                text-shadow: 0 0 10px rgba(62, 2, 23, 0.3); 
             }
             100% { 
                 transform: translateY(0) scale(1); 
@@ -120,10 +120,10 @@
         /* Typewriter Cursor */
         .type-cursor {
             display: inline-block;
-            width: 3px;
-            height: 1.1em;
-            background-color: #81524d;
-            margin-left: 6px;
+            width: 2px;
+            height: 1em;
+            background-color: #1a1a1a;
+            margin-left: 4px;
             vertical-align: text-bottom;
             animation: blink 1s step-end infinite;
         }
@@ -137,7 +137,7 @@
 
     <div id="loader">
         <div style="text-align: center;">
-            <h2 class="text-h2 sm:text-h1 noto-serif text-secondary tracking-[0.15em] sm:tracking-[0.2em] whitespace-nowrap" style="color: #81524d; font-family: 'Noto Serif', serif; font-size: 36px; letter-spacing: 0.15em;">
+            <h2 class="whitespace-nowrap" style="color: #1a1a1a; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 22px; letter-spacing: 0.35em; text-transform: uppercase; padding-left: 0.35em;">
                 <span id="typewriter"></span><span class="type-cursor" id="cursor"></span>
             </h2>
         </div>
