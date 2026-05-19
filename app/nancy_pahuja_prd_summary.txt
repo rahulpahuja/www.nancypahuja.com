@@ -1,0 +1,23 @@
+Nancy Pahuja Direct-to-Consumer (DTC) Web Application PRD & Branding Kit
+
+Project: Nancy Pahuja
+Target: Women 25-55, South Asian Apparel (Lawn Suits)
+Brand: Premium, Elegant, Artisanal
+Colors: White (#FFFFFF), Graceful Blush (#F8D7DA), Rose Blush (#D98891), Deep Berry (#4A3B3D)
+Typography: Cormorant Garamond (Serif), Montserrat (Sans-Serif)
+
+Key Requirements:
+- Google Sign-In exclusive authentication.
+- Strict "No Returns, No Cancellation" policy enforcement.
+- Product Management System (PMS) and Order Management System (OMS) for admins.
+- Omnichannel notifications (WhatsApp/SMS).
+
+Proposed Screen List:
+1. Homepage: Elegant storytelling, hero collections, and artisanal highlights.
+2. Product Listing Page (PLP): High-resolution grid with filters.
+3. Product Detail Page (PDP): Gallery, size charts, and "Final Sale" badge.
+4. Cart & Checkout: Policy acknowledgement and WhatsApp/SMS preference collection.
+5. User Profile/Orders: Google-authenticated view of order history (no cancel button).
+6. Admin Dashboard: Overview of sales and fulfillment status.
+7. Admin PMS: Catalog management (Add/Edit products).
+8. Admin OMS: Order grid and fulfillment pipeline management.

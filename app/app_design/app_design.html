@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Brand Guidelines - Aura Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#ffd9dc",
+                    "surface-dim": "#dadada",
+                    "secondary-fixed-dim": "#debfc2",
+                    "surface-bright": "#f9f9f9",
+                    "primary": "#8e4a53",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#534344",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#ffb2ba",
+                    "on-error": "#ffffff",
+                    "surface": "#f9f9f9",
+                    "on-secondary-container": "#755c5f",
+                    "on-primary-fixed-variant": "#72333c",
+                    "surface-container": "#eeeeee",
+                    "surface-variant": "#e2e2e2",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#281719",
+                    "background": "#f9f9f9",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#d8c1c2",
+                    "inverse-surface": "#2f3131",
+                    "error": "#ba1a1a",
+                    "on-primary-container": "#5c222c",
+                    "tertiary": "#6b5a5c",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-background": "#1a1c1c",
+                    "primary-container": "#d98891",
+                    "surface-tint": "#8e4a53",
+                    "secondary-fixed": "#fcdbde",
+                    "on-primary-fixed": "#3a0813",
+                    "outline": "#857374",
+                    "surface-container-high": "#e8e8e8",
+                    "tertiary-fixed": "#f4dddf",
+                    "on-tertiary-container": "#413234",
+                    "surface-container-low": "#f3f3f4",
+                    "tertiary-fixed-dim": "#d7c1c3",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#524345",
+                    "secondary-container": "#f9d8db",
+                    "on-surface": "#1a1c1c",
+                    "on-secondary-fixed-variant": "#584144",
+                    "tertiary-container": "#ae9a9c",
+                    "inverse-primary": "#ffb2ba",
+                    "secondary": "#71585b",
+                    "inverse-on-surface": "#f0f1f1",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed": "#25181a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap": "120px",
+                    "gutter": "24px",
+                    "grid-columns": "12",
+                    "container-padding": "64px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "label-sm": [
+                            "manrope"
+                    ],
+                    "headline-lg": [
+                            "notoSerif"
+                    ],
+                    "body-lg": [
+                            "manrope"
+                    ],
+                    "headline-md": [
+                            "notoSerif"
+                    ],
+                    "display-lg": [
+                            "notoSerif"
+                    ],
+                    "body-md": [
+                            "manrope"
+                    ]
+            },
+            "fontSize": {
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "1.0",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "300"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Noto+Serif:wght@400&display=swap');
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md">
+<!-- SideNavBar -->
+<nav class="bg-surface dark:bg-on-background h-screen w-64 fixed left-0 top-0 flex flex-col h-full border-r border-outline-variant dark:border-primary z-50">
+<div class="p-6 pb-12 border-b border-outline-variant/30 dark:border-primary/30">
+<h1 class="font-headline-lg text-headline-lg text-on-surface dark:text-surface-bright tracking-tight">Aura Admin</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-2 uppercase tracking-widest">Premium Apparel</p>
+</div>
+<div class="flex-1 overflow-y-auto py-6">
+<ul class="space-y-2 px-4">
+<li>
+<a class="flex items-center space-x-3 text-on-surface-variant dark:text-primary-fixed opacity-70 hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200 px-4 py-3 rounded-DEFAULT hover:bg-surface-variant/30" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center space-x-3 text-on-surface-variant dark:text-primary-fixed opacity-70 hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200 px-4 py-3 rounded-DEFAULT hover:bg-surface-variant/30" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">auto_awesome_motion</span>
+<span class="font-label-sm text-label-sm">Collections</span>
+</a>
+</li>
+<li>
+<a class="flex items-center space-x-3 text-on-surface-variant dark:text-primary-fixed opacity-70 hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200 px-4 py-3 rounded-DEFAULT hover:bg-surface-variant/30" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">shopping_bag</span>
+<span class="font-label-sm text-label-sm">Orders</span>
+</a>
+</li>
+<li>
+<a class="flex items-center space-x-3 text-on-surface-variant dark:text-primary-fixed opacity-70 hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200 px-4 py-3 rounded-DEFAULT hover:bg-surface-variant/30" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">inventory_2</span>
+<span class="font-label-sm text-label-sm">Inventory</span>
+</a>
+</li>
+<li>
+<a class="flex items-center space-x-3 text-on-surface-variant dark:text-primary-fixed opacity-70 hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200 px-4 py-3 rounded-DEFAULT hover:bg-surface-variant/30" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">monitoring</span>
+<span class="font-label-sm text-label-sm">Analytics</span>
+</a>
+</li>
+<li>
+<a class="flex items-center space-x-3 text-secondary dark:text-secondary-fixed-dim font-bold bg-primary-container/10 px-4 py-3 rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="p-6 border-t border-outline-variant/30 dark:border-primary/30 flex items-center space-x-4">
+<img alt="Admin Profile Avatar" class="w-10 h-10 rounded-full object-cover border border-outline-variant/50" src="https://lh3.googleusercontent.com/aida/ADBb0ujAthKdusrAsYUME7Zq9zj5UmnT1aE5rxa9E8VdwNPx9oCgpLhIPRufCj4OzLRaNwV6silUzt3gGCCpv-UvMPDH3q0RBDezVr1Q0FPsJ60400RltnBIgQLzFwYXcM99m869Xf5JFJtfLKg7E2rXquUlsksdAS3hERz7yQtVQyf3Lw4GSBE_3-ruXlb-DsBJBAw1cIzmlEoD3DxtnKNHHBEXgFooq3DbhrCF_NdkIBufwGRZ8XStewEHXJqQ"/>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface">Nancy Pahuja</p>
+<p class="text-xs text-on-surface-variant mt-1">Administrator</p>
+</div>
+</div>
+</nav>
+<!-- TopNavBar -->
+<header class="bg-primary-container/80 dark:bg-on-background/80 backdrop-blur-md docked full-width top-0 sticky z-40 ml-64 border-b border-outline-variant dark:border-primary">
+<div class="flex justify-between items-center px-container-padding py-4 w-full">
+<div class="flex items-center">
+<h2 class="font-headline-md text-headline-md text-on-surface dark:text-surface-bright">Brand Guidelines</h2>
+</div>
+<div class="flex items-center space-x-6">
+<div class="relative hidden md:block">
+<span class="material-symbols-outlined absolute left-0 top-1/2 -translate-y-1/2 text-on-surface-variant" style="font-variation-settings: 'wght' 300;">search</span>
+<input class="bg-transparent border-0 border-b border-primary/20 text-on-surface focus:ring-0 focus:border-primary pl-8 py-1 text-sm w-48 placeholder:text-on-surface-variant/50 transition-colors font-body-md text-body-md" placeholder="Search guidelines..." type="text"/>
+</div>
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">help_outline</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 p-container-padding pt-16">
+<!-- Hero Image -->
+<section class="mb-section-gap relative h-[400px] w-full bg-surface-container overflow-hidden flex items-end p-12">
+<div class="absolute inset-0 bg-cover bg-center opacity-80" style="background-image: url('https://lh3.googleusercontent.com/aida/ADBb0uilDDx09nlDEsH36TGnGjdzyDwi1aZN3CblXUk7xXE_FW-_8a6PsJxDu6pZre-TNT-nYvb4JPyOJsRehIF7ANHyuArmEVJlXoS8qtscy6X2SgL-FVKpJbxDzCy2NlUTHDTPDmx4oOV_k3KSqlQff4KLjaK_yzvPRLMXEIdcju4oBslHNkIgu6UjlZPxifH5J3Mk1TK3STw7m8YYOBrjnFswnaVlb3Fy3qUuWWwVDrLxdpcrKbyUh-EtrlpO');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent"></div>
+<div class="relative z-10 max-w-2xl">
+<h2 class="font-display-lg text-display-lg text-on-background mb-4">Design System</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">The intersection of traditional South Asian heritage and contemporary minimalist luxury. A guide to establishing Ethereal Authority.</p>
+</div>
+</section>
+<!-- Visual Identity / Colors -->
+<section class="mb-section-gap">
+<div class="flex items-baseline justify-between mb-12 border-b border-outline-variant/30 pb-4">
+<h3 class="font-headline-lg text-headline-lg text-primary">Visual Identity</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">01 / Palette</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Deep Berry -->
+<div class="group">
+<div class="h-48 w-full bg-primary mb-6 relative overflow-hidden transition-transform duration-500 hover:scale-[1.02]">
+<div class="absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent"></div>
+</div>
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface mb-2">Deep Berry</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Primary Brand Color. Used for primary typography, dominant icons, and solid core actions.</p>
+<div class="flex items-center space-x-2 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'wght' 300;">palette</span>
+<span>#8e4a53</span>
+</div>
+</div>
+<!-- Rose Blush -->
+<div class="group">
+<div class="h-48 w-full bg-primary-container mb-6 relative overflow-hidden transition-transform duration-500 hover:scale-[1.02]">
+<div class="absolute inset-0 bg-gradient-to-tr from-black/5 to-transparent"></div>
+</div>
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface mb-2">Rose Blush</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Secondary Brand Color. Utilized for primary call-to-actions, active states, and subtle highlights.</p>
+<div class="flex items-center space-x-2 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'wght' 300;">palette</span>
+<span>#d98891</span>
+</div>
+</div>
+<!-- Graceful Blush -->
+<div class="group">
+<div class="h-48 w-full bg-secondary-container mb-6 relative overflow-hidden transition-transform duration-500 hover:scale-[1.02] border border-outline-variant/20">
+<div class="absolute inset-0 bg-gradient-to-tr from-black/5 to-transparent"></div>
+</div>
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface mb-2">Graceful Blush</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Surface Container. Applied to secondary information modules, structural cards, and gentle backgrounds.</p>
+<div class="flex items-center space-x-2 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'wght' 300;">palette</span>
+<span>#f9d8db</span>
+</div>
+</div>
+</div>
+<div class="mt-16 grid grid-cols-1 md:grid-cols-6 gap-2">
+<div class="h-16 bg-surface-lowest flex items-center justify-center border border-outline-variant/30"><span class="text-xs text-on-surface-variant">Surface Lowest</span></div>
+<div class="h-16 bg-surface flex items-center justify-center border border-outline-variant/30"><span class="text-xs text-on-surface-variant">Surface</span></div>
+<div class="h-16 bg-surface-container-low flex items-center justify-center"><span class="text-xs text-on-surface-variant">Container Low</span></div>
+<div class="h-16 bg-surface-container flex items-center justify-center"><span class="text-xs text-on-surface-variant">Container</span></div>
+<div class="h-16 bg-surface-container-high flex items-center justify-center"><span class="text-xs text-on-surface-variant">Container High</span></div>
+<div class="h-16 bg-surface-container-highest flex items-center justify-center"><span class="text-xs text-on-surface-variant">Container Highest</span></div>
+</div>
+</section>
+<!-- Typography -->
+<section class="mb-section-gap">
+<div class="flex items-baseline justify-between mb-12 border-b border-outline-variant/30 pb-4">
+<h3 class="font-headline-lg text-headline-lg text-primary">Typography</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">02 / Fonts</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+<!-- Headings -->
+<div>
+<div class="mb-8 pb-4 border-b border-primary/10">
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface mb-2">Headings</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Noto Serif. Used for editorial headlines, establishing a traditional yet modern luxury feel.</p>
+</div>
+<div class="space-y-8">
+<div class="flex items-end border-b border-outline-variant/20 pb-4">
+<div class="w-24 shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Display LG</span>
+<div class="text-xs text-outline mt-1">48px / Regular</div>
+</div>
+<div class="font-display-lg text-display-lg text-on-surface truncate ml-8">Aura Collection</div>
+</div>
+<div class="flex items-end border-b border-outline-variant/20 pb-4">
+<div class="w-24 shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Headline LG</span>
+<div class="text-xs text-outline mt-1">32px / Regular</div>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface truncate ml-8">Artisanal Craft</div>
+</div>
+<div class="flex items-end border-b border-outline-variant/20 pb-4">
+<div class="w-24 shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Headline MD</span>
+<div class="text-xs text-outline mt-1">24px / Regular</div>
+</div>
+<div class="font-headline-md text-headline-md text-on-surface truncate ml-8">Spring Arrivals</div>
+</div>
+</div>
+</div>
+<!-- Body -->
+<div>
+<div class="mb-8 pb-4 border-b border-primary/10">
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface mb-2">Body &amp; UI</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Manrope. Provides pristine legibility and a contemporary structural contrast to the serif headings.</p>
+</div>
+<div class="space-y-8">
+<div class="flex items-end border-b border-outline-variant/20 pb-4">
+<div class="w-24 shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Body LG</span>
+<div class="text-xs text-outline mt-1">18px / Light</div>
+</div>
+<div class="font-body-lg text-body-lg text-on-surface ml-8">Exquisite detailing honoring heritage craftsmanship.</div>
+</div>
+<div class="flex items-end border-b border-outline-variant/20 pb-4">
+<div class="w-24 shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Body MD</span>
+<div class="text-xs text-outline mt-1">16px / Regular</div>
+</div>
+<div class="font-body-md text-body-md text-on-surface ml-8">Our latest collection blends traditional motifs with modern silhouettes.</div>
+</div>
+<div class="flex items-end border-b border-outline-variant/20 pb-4">
+<div class="w-24 shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Label SM</span>
+<div class="text-xs text-outline mt-1">12px / Semibold</div>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface uppercase tracking-widest ml-8">Add to Cart</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Component Preview -->
+<section class="mb-section-gap">
+<div class="flex items-baseline justify-between mb-12 border-b border-outline-variant/30 pb-4">
+<h3 class="font-headline-lg text-headline-lg text-primary">Components</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">03 / UI Elements</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+<!-- Interactive Elements -->
+<div class="space-y-12">
+<!-- Buttons -->
+<div>
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface mb-6 border-b border-primary/10 pb-2">Buttons</h4>
+<div class="flex flex-wrap gap-6 items-center">
+<button class="bg-primary-container text-on-primary-container font-label-sm text-label-sm uppercase tracking-widest px-8 py-4 hover:bg-primary hover:text-on-primary transition-colors duration-200">
+                                Primary Action
+                            </button>
+<button class="bg-transparent border border-primary text-primary font-label-sm text-label-sm uppercase tracking-widest px-8 py-4 hover:bg-primary/5 transition-colors duration-200">
+                                Secondary Action
+                            </button>
+<button class="text-primary font-label-sm text-label-sm uppercase tracking-widest hover:text-primary/70 transition-colors duration-200 flex items-center space-x-2">
+<span>Text Link</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'wght' 300;">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Inputs -->
+<div>
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface mb-6 border-b border-primary/10 pb-2">Input Fields</h4>
+<div class="space-y-6 max-w-md">
+<div class="relative pt-5">
+<label class="absolute top-0 left-0 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Email Address</label>
+<input class="w-full bg-transparent border-0 border-b border-primary text-on-surface font-body-md text-body-md px-0 py-2 focus:ring-0 focus:border-primary" type="email" value="admin@aurapremium.com"/>
+</div>
+<div class="relative pt-5">
+<label class="absolute top-0 left-0 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Password</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant text-on-surface font-body-md text-body-md px-0 py-2 focus:ring-0 focus:border-primary placeholder:text-outline" type="password" value="••••••••"/>
+</div>
+<div class="relative pt-5">
+<label class="absolute top-0 left-0 font-label-sm text-label-sm text-[#ba1a1a] uppercase tracking-widest">Discount Code</label>
+<input class="w-full bg-transparent border-0 border-b border-[#ba1a1a] text-[#ba1a1a] font-body-md text-body-md px-0 py-2 focus:ring-0 focus:border-[#ba1a1a]" type="text" value="INVALID20"/>
+<span class="text-xs text-[#ba1a1a] mt-1 block">Code expired or invalid</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Structural Elements -->
+<div class="space-y-12">
+<!-- Cards -->
+<div>
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface mb-6 border-b border-primary/10 pb-2">Product Card</h4>
+<div class="max-w-[280px]">
+<div class="w-full aspect-[3/4] bg-surface-container mb-4 overflow-hidden relative group cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida/ADBb0ujAthKdusrAsYUME7Zq9zj5UmnT1aE5rxa9E8VdwNPx9oCgpLhIPRufCj4OzLRaNwV6silUzt3gGCCpv-UvMPDH3q0RBDezVr1Q0FPsJ60400RltnBIgQLzFwYXcM99m869Xf5JFJtfLKg7E2rXquUlsksdAS3hERz7yQtVQyf3Lw4GSBE_3-ruXlb-DsBJBAw1cIzmlEoD3DxtnKNHHBEXgFooq3DbhrCF_NdkIBufwGRZ8XStewEHXJqQ');"></div>
+<div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300"></div>
+<button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-surface text-on-surface px-6 py-2 font-label-sm text-label-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300">Quick View</button>
+</div>
+<div class="text-center">
+<h5 class="font-headline-md text-headline-md text-on-surface">Silk Organza Dupatta</h5>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">₹245.00</p>
+</div>
+</div>
+</div>
+<!-- Notification Banner -->
+<div>
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface mb-6 border-b border-primary/10 pb-2">Surface Layers</h4>
+<div class="bg-secondary-container p-6 flex items-start space-x-4">
+<span class="material-symbols-outlined text-secondary mt-1" style="font-variation-settings: 'wght' 300;">info</span>
+<div>
+<h6 class="font-label-sm text-label-sm text-on-surface uppercase tracking-widest mb-1">System Update</h6>
+<p class="font-body-md text-body-md text-on-surface-variant">Inventory sync completed successfully. 24 new items added to the Spring Collection catalog.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>

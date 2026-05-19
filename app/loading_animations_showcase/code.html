@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aura Admin - Motion &amp; Loading States</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#e2e2e2",
+                      "on-primary-container": "#747676",
+                      "on-tertiary-container": "#926c70",
+                      "surface-container-low": "#fff0f1",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed-dim": "#e9bbbf",
+                      "on-secondary-fixed-variant": "#663b36",
+                      "secondary": "#81524d",
+                      "surface-bright": "#fff8f7",
+                      "on-secondary-fixed": "#32110e",
+                      "tertiary-container": "#ffffff",
+                      "on-primary-fixed": "#1a1c1c",
+                      "surface-container-high": "#ffe1e5",
+                      "on-tertiary": "#ffffff",
+                      "secondary-fixed": "#ffdad6",
+                      "on-surface": "#3e0217",
+                      "inverse-primary": "#c6c6c7",
+                      "on-error-container": "#93000a",
+                      "on-background": "#3e0217",
+                      "surface-container": "#ffe9eb",
+                      "surface-variant": "#ffd9df",
+                      "secondary-fixed-dim": "#f5b8b0",
+                      "on-primary": "#ffffff",
+                      "background": "#fff8f7",
+                      "on-tertiary-fixed": "#2e1417",
+                      "on-error": "#ffffff",
+                      "outline-variant": "#c4c7c8",
+                      "inverse-surface": "#5a172c",
+                      "primary-container": "#ffffff",
+                      "on-tertiary-fixed-variant": "#5f3e41",
+                      "on-secondary-container": "#7a4c46",
+                      "tertiary": "#795559",
+                      "surface": "#fff8f7",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed": "#ffd9dc",
+                      "surface-dim": "#ffcdd6",
+                      "on-primary-fixed-variant": "#454747",
+                      "surface-tint": "#5d5f5f",
+                      "surface-container-highest": "#ffd9df",
+                      "inverse-on-surface": "#ffecee",
+                      "outline": "#747878",
+                      "secondary-container": "#fec0b9",
+                      "on-surface-variant": "#444748",
+                      "error-container": "#ffdad6",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed-dim": "#c6c6c7",
+                      "primary": "#5d5f5f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap": "80px",
+                      "grid-gutter": "16px",
+                      "base": "8px",
+                      "container-padding": "24px"
+              },
+              "fontFamily": {
+                      "h3": [
+                              "Noto Serif"
+                      ],
+                      "h1": [
+                              "Noto Serif"
+                      ],
+                      "button": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-caps": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "h2": [
+                              "Noto Serif"
+                      ],
+                      "body-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "h3": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "h1": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "button": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "h2": [
+                              "36px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body { background-color: #fff8f7; /* surface */ }
+      </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen antialiased flex">
+<!-- SideNavBar -->
+<nav class="h-screen w-64 fixed left-0 top-0 bg-surface flex flex-col border-r border-outline-variant z-50">
+<div class="p-container-padding flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">person</span>
+</div>
+<div>
+<h2 class="font-h3 text-h3 text-on-surface">Aura Admin</h2>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-1">Premium Apparel</p>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto py-4 px-4 space-y-2">
+<!-- Active: Settings (Contextual for a showcase page) -->
+<a class="flex items-center space-x-3 text-on-surface-variant opacity-70 p-3 rounded-lg hover:text-secondary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-caps text-label-caps">Dashboard</span>
+</a>
+<a class="flex items-center space-x-3 text-on-surface-variant opacity-70 p-3 rounded-lg hover:text-secondary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">auto_awesome_motion</span>
+<span class="font-label-caps text-label-caps">Collections</span>
+</a>
+<a class="flex items-center space-x-3 text-on-surface-variant opacity-70 p-3 rounded-lg hover:text-secondary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-label-caps text-label-caps">Orders</span>
+</a>
+<a class="flex items-center space-x-3 text-on-surface-variant opacity-70 p-3 rounded-lg hover:text-secondary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-caps text-label-caps">Inventory</span>
+</a>
+<a class="flex items-center space-x-3 text-on-surface-variant opacity-70 p-3 rounded-lg hover:text-secondary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-label-caps text-label-caps">Analytics</span>
+</a>
+<a class="flex items-center space-x-3 text-secondary font-bold p-3 rounded-lg bg-surface-container-low" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex flex-col w-full ml-64 min-h-screen">
+<!-- TopNavBar -->
+<header class="docked full-width top-0 sticky z-40 bg-primary-container/80 backdrop-blur-md flex justify-between items-center px-container-padding py-4 w-full">
+<div class="flex items-center">
+<span class="font-h2 text-h2 text-on-surface mr-4">Aura Admin</span>
+<!-- Search Mock -->
+<div class="hidden md:flex items-center bg-surface-container-low border border-outline-variant rounded-full px-4 py-2">
+<span class="material-symbols-outlined text-outline mr-2 text-sm">search</span>
+<span class="text-outline text-sm">Search records...</span>
+</div>
+</div>
+<div class="flex items-center space-x-6">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-label-caps text-label-caps">
+                    A
+                </div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow p-container-padding lg:px-12 py-12 max-w-7xl mx-auto w-full">
+<!-- Hero Section -->
+<section class="mb-section-gap max-w-3xl">
+<h1 class="font-h1 text-h1 text-on-surface mb-6">Motion &amp; Loading States</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    In our pursuit of digital craftsmanship, loading states are not mere interruptions, but moments of subtle artistry. By utilizing motion that mimics physical weaving and organic growth, we enhance the tactile elegance of the Aura experience, ensuring that even pauses feel deliberate and refined.
+                </p>
+<div class="h-px w-24 bg-surface-variant mt-12"></div>
+</section>
+<!-- Loading States Grid (Bento Pattern) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-grid-gutter">
+<!-- The Bloom (Spinner) -->
+<div class="md:col-span-4 bg-surface-container-lowest rounded-lg p-container-padding flex flex-col items-center justify-center min-h-[300px]">
+<h3 class="font-h3 text-h3 text-on-surface mb-8 w-full text-center">The Bloom</h3>
+<!-- Static Representation of a floral spinner -->
+<div class="relative w-24 h-24 flex items-center justify-center">
+<div class="absolute w-4 h-4 bg-secondary rounded-full top-0 opacity-100"></div>
+<div class="absolute w-4 h-4 bg-secondary rounded-full top-4 right-4 opacity-80"></div>
+<div class="absolute w-4 h-4 bg-secondary rounded-full right-0 opacity-60"></div>
+<div class="absolute w-4 h-4 bg-secondary rounded-full bottom-4 right-4 opacity-40"></div>
+<div class="absolute w-4 h-4 bg-secondary rounded-full bottom-0 opacity-20"></div>
+<div class="absolute w-4 h-4 bg-secondary rounded-full bottom-4 left-4 opacity-10"></div>
+<div class="absolute w-4 h-4 bg-secondary rounded-full left-0 opacity-5"></div>
+<div class="absolute w-4 h-4 bg-secondary rounded-full top-4 left-4 opacity-30"></div>
+</div>
+<p class="font-label-caps text-label-caps text-outline mt-8 text-center uppercase tracking-widest">Global Indeterminate</p>
+</div>
+<!-- The Loom (Progress Bar) -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-lg p-container-padding flex flex-col justify-center min-h-[300px]">
+<h3 class="font-h3 text-h3 text-on-surface mb-8">The Loom</h3>
+<div class="w-full max-w-md mx-auto">
+<div class="h-1 w-full bg-surface-variant rounded-full overflow-hidden mb-4 relative">
+<!-- Static Progress Fill -->
+<div class="absolute top-0 left-0 h-full w-2/3 bg-secondary"></div>
+</div>
+<div class="flex justify-between items-center text-outline">
+<span class="font-label-caps text-label-caps">Weaving collection...</span>
+<span class="font-label-caps text-label-caps">66%</span>
+</div>
+</div>
+<p class="font-label-caps text-label-caps text-outline mt-12 text-center uppercase tracking-widest">Determinate Actions</p>
+</div>
+<!-- Skeleton Loaders -->
+<div class="md:col-span-12 bg-surface-container-lowest rounded-lg p-container-padding mt-4">
+<h3 class="font-h3 text-h3 text-on-surface mb-8">Skeleton Loaders</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Skeleton State -->
+<div class="flex gap-6">
+<div class="w-32 h-40 bg-surface-variant rounded flex-shrink-0"></div>
+<div class="flex flex-col space-y-4 w-full pt-2">
+<div class="h-6 bg-surface-variant rounded w-3/4"></div>
+<div class="h-4 bg-surface-variant rounded w-1/2"></div>
+<div class="h-4 bg-surface-variant rounded w-full mt-4"></div>
+<div class="h-4 bg-surface-variant rounded w-5/6"></div>
+<div class="flex gap-2 mt-auto">
+<div class="h-8 bg-surface-variant rounded-full w-16"></div>
+<div class="h-8 bg-surface-variant rounded-full w-16"></div>
+</div>
+</div>
+</div>
+<!-- Loaded State for Comparison -->
+<div class="flex gap-6 opacity-60">
+<img alt="Loaded state placeholder" class="w-32 h-40 object-cover rounded flex-shrink-0 border border-outline-variant" src="https://lh3.googleusercontent.com/aida/ADBb0ujAthKdusrAsYUME7Zq9zj5UmnT1aE5rxa9E8VdwNPx9oCgpLhIPRufCj4OzLRaNwV6silUzt3gGCCpv-UvMPDH3q0RBDezVr1Q0FPsJ60400RltnBIgQLzFwYXcM99m869Xf5JFJtfLKg7E2rXquUlsksdAS3hERz7yQtVQyf3Lw4GSBE_3-ruXlb-DsBJBAw1cIzmlEoD3DxtnKNHHBEXgFooq3DbhrCF_NdkIBufwGRZ8XStewEHXJqQ"/>
+<div class="flex flex-col w-full pt-2">
+<h4 class="font-h3 text-h3 text-on-surface mb-1 text-xl">Silk Blend Tunic</h4>
+<p class="font-label-caps text-label-caps text-secondary mb-4">SKU: AW23-091</p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Hand-woven botanical motifs detailing the hemline.</p>
+<div class="flex gap-2 mt-auto">
+<span class="px-3 py-1 bg-surface rounded-full border border-outline-variant font-label-caps text-label-caps text-on-surface-variant">Size S</span>
+<span class="px-3 py-1 bg-surface rounded-full border border-outline-variant font-label-caps text-label-caps text-on-surface-variant">Blush</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Success State -->
+<div class="md:col-span-12 bg-surface-container-lowest rounded-lg p-container-padding mt-4 flex flex-col items-center justify-center py-16">
+<div class="w-20 h-20 bg-surface-container rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-4xl text-secondary" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface mb-2">Order Confirmed</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-center max-w-sm">
+                        The transaction has been gracefully completed.
+                    </p>
+</div>
+</div>
+</main>
+</div>
+</body></html>

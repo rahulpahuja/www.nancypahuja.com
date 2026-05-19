@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Invoice - Nancy Pahuja</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#c6c6c7",
+                        "secondary": "#81524d",
+                        "inverse-on-surface": "#ffecee",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#2e1417",
+                        "secondary-container": "#fec0b9",
+                        "on-surface": "#3e0217",
+                        "on-secondary-fixed-variant": "#663b36",
+                        "tertiary-container": "#ffffff",
+                        "outline": "#747878",
+                        "surface-container-high": "#ffe1e5",
+                        "tertiary-fixed": "#ffd9dc",
+                        "on-tertiary-container": "#926c70",
+                        "surface-container-low": "#fff0f1",
+                        "tertiary-fixed-dim": "#e9bbbf",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#5f3e41",
+                        "on-background": "#3e0217",
+                        "primary-container": "#ffffff",
+                        "surface-tint": "#5d5f5f",
+                        "secondary-fixed": "#ffdad6",
+                        "on-primary-fixed": "#1a1c1c",
+                        "on-primary-container": "#747676",
+                        "tertiary": "#795559",
+                        "surface-container-highest": "#ffd9df",
+                        "on-secondary-fixed": "#32110e",
+                        "background": "#fff8f7",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c4c7c8",
+                        "inverse-surface": "#5a172c",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#444748",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "on-error": "#ffffff",
+                        "surface": "#fff8f7",
+                        "on-secondary-container": "#7a4c46",
+                        "on-primary-fixed-variant": "#454747",
+                        "surface-container": "#ffe9eb",
+                        "surface-variant": "#ffd9df",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#e2e2e2",
+                        "surface-dim": "#ffcdd6",
+                        "secondary-fixed-dim": "#f5b8b0",
+                        "surface-bright": "#fff8f7",
+                        "primary": "#5d5f5f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "grid-gutter": "16px",
+                        "base": "8px",
+                        "section-gap": "80px",
+                        "container-padding": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Plus Jakarta Sans", "sans-serif"],
+                        "label-caps": ["Plus Jakarta Sans", "sans-serif"],
+                        "h2": ["Noto Serif", "serif"],
+                        "h1": ["Noto Serif", "serif"],
+                        "h3": ["Noto Serif", "serif"],
+                        "button": ["Plus Jakarta Sans", "sans-serif"],
+                        "body-lg": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "h2": ["36px", { "lineHeight": "1.3", "fontWeight": "400" }],
+                        "h1": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                        "h3": ["28px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "button": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">
+<!-- Minimal Header for Focused View -->
+<header class="w-full px-container-padding py-base border-b border-surface-variant bg-surface-container-lowest sticky top-0 z-10">
+<div class="max-w-5xl mx-auto flex items-center justify-between">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-on-background transition-colors duration-300 group">
+<span class="material-symbols-outlined text-[20px] group-hover:-translate-x-1 transition-transform duration-300" data-icon="arrow_back">arrow_back</span>
+<span class="font-button uppercase tracking-widest text-[12px]">Back to Account</span>
+</button>
+<div class="font-h3 text-tertiary tracking-tight">Nancy Pahuja</div>
+<div class="w-24"></div> <!-- Spacer for center alignment -->
+</div>
+</header>
+<main class="flex-grow py-section-gap px-container-padding">
+<div class="max-w-4xl mx-auto">
+<!-- Actions & Title -->
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+<div>
+<h1 class="font-h1 text-on-background mb-2">Order Invoice</h1>
+<p class="font-body-md text-on-surface-variant">Order #NP-1029384 • Placed on October 12, 2023</p>
+</div>
+<div class="flex gap-4">
+<button class="flex items-center justify-center gap-2 px-6 py-3 border border-secondary text-secondary rounded-DEFAULT hover:bg-surface-container transition-colors duration-300">
+<span class="material-symbols-outlined text-[18px]" data-icon="print">print</span>
+<span class="font-button uppercase">Print</span>
+</button>
+<button class="flex items-center justify-center gap-2 px-6 py-3 bg-secondary text-on-secondary rounded-DEFAULT hover:bg-on-secondary-fixed-variant transition-colors duration-300">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+<span class="font-button uppercase">Download PDF</span>
+</button>
+</div>
+</div>
+<!-- Document Card -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant overflow-hidden shadow-sm"><div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-8 md:px-12 md:py-6 border-b border-surface-variant bg-surface-container">
+<div class="flex flex-col">
+<span class="font-label-caps text-on-surface-variant uppercase text-[10px]">Order ID</span>
+<span class="font-h3 text-on-background">#NP-1029384</span>
+</div>
+<div class="flex flex-col sm:items-end">
+<span class="font-label-caps text-on-surface-variant uppercase text-[10px]">Order Date</span>
+<span class="font-body-lg font-medium text-on-background">October 12, 2023</span>
+</div>
+</div>
+<!-- Addresses -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 md:p-12 border-b border-surface-variant bg-surface-container-low/30">
+<div class="flex flex-col gap-2">
+<h3 class="font-label-caps text-on-surface-variant uppercase mb-2">Billing Address</h3>
+<p class="font-body-md text-on-background">Eleanor Vance</p>
+<p class="font-body-md text-on-background">123 Heritage Lane, Apt 4B</p>
+<p class="font-body-md text-on-background">New York, NY 10001</p>
+<p class="font-body-md text-on-background">United States</p>
+<p class="font-body-md text-on-surface-variant mt-2">eleanor.v@example.com</p>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="font-label-caps text-on-surface-variant uppercase mb-2">Shipping Address</h3>
+<p class="font-body-md text-on-background">Eleanor Vance</p>
+<p class="font-body-md text-on-background">123 Heritage Lane, Apt 4B</p>
+<p class="font-body-md text-on-background">New York, NY 10001</p>
+<p class="font-body-md text-on-background">United States</p>
+<p class="font-body-md text-on-surface-variant mt-2">+1 (555) 019-2834</p>
+</div>
+</div>
+<!-- Line Items -->
+<div class="p-8 md:p-12">
+<div class="hidden md:grid grid-cols-12 gap-4 pb-4 border-b border-surface-variant mb-6">
+<div class="col-span-6 font-label-caps text-on-surface-variant uppercase">Item Description</div>
+<div class="col-span-2 text-center font-label-caps text-on-surface-variant uppercase">Price</div>
+<div class="col-span-2 text-center font-label-caps text-on-surface-variant uppercase">Qty</div>
+<div class="col-span-2 text-right font-label-caps text-on-surface-variant uppercase">Total</div>
+</div>
+<!-- Item Row -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center py-4 border-b border-surface-variant/50">
+<div class="col-span-1 md:col-span-6 flex gap-6 items-center">
+<div class="w-20 h-24 bg-surface-variant rounded-DEFAULT overflow-hidden shrink-0">
+<img alt="Close-up photograph of a luxurious South Asian lawn suit fabric featuring intricate botanical embroidery. The textile is a soft blush pink color with delicate ivory and pale gold threadwork depicting vintage-inspired floral motifs. The lighting is soft and natural, emphasizing the tactile elegance and high-end craftsmanship of the material against a clean, minimalist white background." class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ujAthKdusrAsYUME7Zq9zj5UmnT1aE5rxa9E8VdwNPx9oCgpLhIPRufCj4OzLRaNwV6silUzt3gGCCpv-UvMPDH3q0RBDezVr1Q0FPsJ60400RltnBIgQLzFwYXcM99m869Xf5JFJtfLKg7E2rXquUlsksdAS3hERz7yQtVQyf3Lw4GSBE_3-ruXlb-DsBJBAw1cIzmlEoD3DxtnKNHHBEXgFooq3DbhrCF_NdkIBufwGRZ8XStewEHXJqQ"/>
+</div>
+<div>
+<h4 class="font-body-lg text-on-background mb-1">Gulbahar Embroidered Lawn Set</h4>
+<p class="font-label-caps text-on-surface-variant">Color: Rose Ash • Size: Medium</p>
+</div>
+</div>
+<div class="col-span-1 md:col-span-2 flex justify-between md:justify-center">
+<span class="md:hidden font-label-caps text-on-surface-variant uppercase">Price</span>
+<span class="font-body-md text-on-background">₹245.00</span>
+</div>
+<div class="col-span-1 md:col-span-2 flex justify-between md:justify-center">
+<span class="md:hidden font-label-caps text-on-surface-variant uppercase">Qty</span>
+<span class="font-body-md text-on-background">1</span>
+</div>
+<div class="col-span-1 md:col-span-2 flex justify-between md:justify-end">
+<span class="md:hidden font-label-caps text-on-surface-variant uppercase">Total</span>
+<span class="font-body-md text-on-background font-medium">₹245.00</span>
+</div>
+</div>
+</div>
+<!-- Totals -->
+<div class="p-8 md:p-12 bg-surface-container-low/30 border-t border-surface-variant flex flex-col items-end">
+<div class="w-full md:w-1/2 lg:w-1/3 flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">Subtotal</span>
+<span class="font-body-md text-on-background">₹245.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">Shipping (Standard)</span>
+<span class="font-body-md text-on-background">₹15.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">Estimated Tax</span>
+<span class="font-body-md text-on-background">₹21.44</span>
+</div>
+<div class="h-px w-full bg-surface-variant my-2"></div>
+<div class="flex justify-between items-center">
+<span class="font-body-lg font-medium text-on-background">Grand Total</span>
+<span class="font-h3 text-secondary">₹281.44</span>
+</div>
+</div>
+</div>
+<!-- Policy Footer -->
+<div class="p-8 text-center border-t border-surface-variant bg-surface-container-lowest">
+<p class="font-label-caps text-on-surface-variant tracking-widest uppercase">Policy</p>
+<p class="font-body-md text-on-surface-variant mt-2 max-w-2xl mx-auto">
+                        Please note that all artisanal pieces are crafted to order. As per our heritage policy, we adhere strictly to a <strong class="text-on-background font-medium">No Returns, No Cancellations</strong> protocol once an order has been processed.
+                    </p>
+</div>
+</div>
+</div>
+</main>
+</body></html>
