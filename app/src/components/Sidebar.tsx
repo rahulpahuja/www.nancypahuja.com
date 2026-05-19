@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 import * as Icons from 'lucide-react';
 import { Module } from '../modules';
 import { UserRole } from '../App';
@@ -8,13 +8,29 @@ interface SidebarProps {
   isOpen: boolean;
   setIsOpen: (open: boolean) => void;
   userRole: UserRole;
-  onLogout: () => void;
+  onLogout: () => Promise<void>;
   modules: Module[];
   showToggle?: boolean;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, userRole, onLogout, modules, showToggle = true }) => {
+  const navigate = useNavigate();
   const categories = userRole === 'Admin' ? ['User', 'Admin', 'Showcase'] : ['User'];
+  const [isLoggingOut, setIsLoggingOut] = React.useState(false);
+
+  const handleLogout = async () => {
+    const shouldLogout = window.confirm('Are you sure you want to log out?');
+    if (!shouldLogout) return;
+
+    setIsLoggingOut(true);
+    try {
+      await onLogout();
+      setIsOpen(false);
+      navigate('/login?returnTo=/view/homepage', { replace: true });
+    } finally {
+      setIsLoggingOut(false);
+    }
+  };
 
   return (
     <>
@@ -93,9 +109,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, userRole, onLogout
         <div style={styles.footer}>
           <div style={styles.userInfo}>
             <p style={styles.userRoleText}>{userRole} Mode</p>
-            <button onClick={onLogout} style={styles.logoutButton}>
+            <button onClick={handleLogout} style={styles.logoutButton} disabled={isLoggingOut}>
               <Icons.LogOut size={14} style={{ marginRight: '8px' }} />
-              Logout
+              {isLoggingOut ? 'Logging out...' : 'Logout'}
             </button>
           </div>
           <p style={{ marginTop: '12px' }}>© 2026 Nancy Pahuja</p>

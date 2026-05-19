@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { LogIn } from 'lucide-react';
 
 import LoadingScreen from './LoadingScreen';
+import { useAuth } from '../auth';
 
 interface LoginProps {
   onLogin: (role: 'User' | 'Admin') => void;
@@ -10,12 +11,27 @@ interface LoginProps {
 
 const Login: React.FC<LoginProps> = ({ onLogin }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { error, signInWithGoogle } = useAuth();
   const [loading, setLoading] = useState(false);
   const [pendingRole, setPendingRole] = useState<'User' | 'Admin' | null>(null);
+
+  const returnTo = new URLSearchParams(location.search).get('returnTo') || '/profile';
 
   const handleMockLogin = (role: 'User' | 'Admin') => {
     setPendingRole(role);
     setLoading(true);
+  };
+
+  const handleGoogleLogin = async () => {
+    setLoading(true);
+    const user = await signInWithGoogle();
+    setLoading(false);
+
+    if (user) {
+      onLogin('User');
+      navigate(returnTo, { replace: true });
+    }
   };
 
   if (loading && pendingRole) {
@@ -39,12 +55,12 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
 
           <div style={styles.buttonGroup}>
             <button 
-              onClick={() => handleMockLogin('User')} 
+              onClick={handleGoogleLogin} 
               style={styles.primaryButton}
               disabled={loading}
             >
               <LogIn size={20} style={styles.icon} />
-              {loading ? 'Signing in...' : 'Sign in as Customer'}
+              {loading ? 'Signing in...' : 'Continue with Google'}
             </button>
 
             <button 
@@ -55,6 +71,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
               {loading ? 'Accessing...' : 'Sign in as Administrator'}
             </button>
           </div>
+          {error && <p style={styles.error}>{error}</p>}
           
           <p style={styles.policyNote}>
             By signing in, you agree to our <span style={styles.link}>Terms of Service</span> and <span style={styles.link}>Privacy Policy</span>.
@@ -164,6 +181,14 @@ const styles: Record<string, React.CSSProperties> = {
   link: {
     textDecoration: 'underline',
     cursor: 'pointer',
+  },
+  error: {
+    fontSize: '12px',
+    color: '#93000a',
+    backgroundColor: '#ffdad6',
+    borderRadius: 'var(--radius-sm)',
+    padding: '10px',
+    marginBottom: '16px',
   }
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { ShoppingBag, User, Search, Menu } from 'lucide-react';
+import { useAuth } from '../auth';
 
 interface CustomerHeaderProps {
   onMenuClick: () => void;
@@ -8,6 +9,7 @@ interface CustomerHeaderProps {
 
 const CustomerHeader: React.FC<CustomerHeaderProps> = ({ onMenuClick }) => {
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   return (
     <header style={styles.header}>
@@ -33,7 +35,7 @@ const CustomerHeader: React.FC<CustomerHeaderProps> = ({ onMenuClick }) => {
             <Search size={20} />
           </button>
           <div className="user-menu-container" style={{ position: 'relative' }}>
-            <button style={styles.iconButton} onClick={() => navigate('/view/order_history')} title="Account">
+            <button style={styles.iconButton} onClick={() => navigate(user ? '/profile' : '/login?returnTo=/profile')} title={user ? 'Profile' : 'Sign in'}>
               <User size={20} />
             </button>
           </div>

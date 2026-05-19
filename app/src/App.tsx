@@ -6,6 +6,8 @@ import ScreenShell from './components/ScreenShell';
 import CustomerHeader from './components/CustomerHeader';
 import Login from './components/Login';
 import LoadingScreen from './components/LoadingScreen';
+import UserProfile from './components/UserProfile';
+import { AuthProvider, useAuth } from './auth';
 import { modules } from './modules';
 
 import * as Icons from 'lucide-react';
@@ -15,17 +17,18 @@ export type UserRole = 'User' | 'Admin';
 const AppLayout: React.FC<{ 
   children: React.ReactNode, 
   userRole: UserRole, 
-  onLogout: () => void 
+  onLogout: () => Promise<void> 
 }> = ({ children, userRole, onLogout }) => {
   const location = useLocation();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   
   const isView = location.pathname.startsWith('/view/');
+  const isProfile = location.pathname === '/profile';
   const moduleId = isView ? location.pathname.split('/')[2] : null;
   const module = modules.find(m => m.id === moduleId);
   
   const isUserCategory = module && module.category === 'User';
-  const showCustomerHeader = isView && isUserCategory;
+  const showCustomerHeader = (isView && isUserCategory) || isProfile;
 
   useEffect(() => {
     setIsSidebarOpen(false);
@@ -98,6 +101,15 @@ const AppLayout: React.FC<{
 };
 
 const App: React.FC = () => {
+  return (
+    <AuthProvider>
+      <AppRoutes />
+    </AuthProvider>
+  );
+};
+
+const AppRoutes: React.FC = () => {
+  const { logout } = useAuth();
   const [userRole, setUserRole] = useState<UserRole>('User');
   const [isAppLoading, setIsAppLoading] = useState(true);
 
@@ -105,7 +117,8 @@ const App: React.FC = () => {
     setUserRole(role);
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    await logout();
     setUserRole('User');
   };
 
@@ -113,6 +126,7 @@ const App: React.FC = () => {
     <Router>
       {isAppLoading && <LoadingScreen onFinished={() => setIsAppLoading(false)} />}
       <Routes>
+        <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/admin" element={
           userRole === 'Admin' ? <Navigate to="/" replace /> : <Login onLogin={handleLogin} />
         } />
@@ -123,6 +137,7 @@ const App: React.FC = () => {
               <Routes>
                 <Route path="/" element={<Dashboard userRole={userRole} />} />
                 <Route path="/view/:moduleId" element={<ScreenShell userRole={userRole} />} />
+                <Route path="/profile" element={<UserProfile />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </AppLayout>
