@@ -41,7 +41,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, userRole, onLogout
           <button 
             onClick={() => setIsOpen(false)} 
             style={styles.closeButton}
-            className="mobile-only"
           >
             <Icons.X size={24} />
           </button>
@@ -104,15 +103,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, userRole, onLogout
 
       <style>{`
         @media (min-width: 1024px) {
-          aside {
-            transform: translateX(0) !important;
-          }
-          button[aria-label="Open Menu"] {
-            display: none !important;
-          }
-          .mobile-only {
-            display: none !important;
-          }
+          /* No longer forcing transform here to allow desktop toggling */
         }
       `}</style>
     </>

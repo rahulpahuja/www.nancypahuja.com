@@ -54,7 +54,7 @@ const AppLayout: React.FC<{
         className="main-content" 
         style={{
           ...styles.mainContent,
-          marginLeft: (isUserCategory) ? '0' : '280px',
+          marginLeft: (isUserCategory || !isSidebarOpen) ? '0' : '280px',
         }}
       >
         {showCustomerHeader && (
@@ -88,7 +88,7 @@ const AppLayout: React.FC<{
       <style>{`
         @media (min-width: 1024px) {
           .main-content {
-            margin-left: ${isUserCategory ? '0' : '280px'} !important;
+            margin-left: ${isUserCategory || !isSidebarOpen ? '0' : '280px'} !important;
           }
         }
         @media (max-width: 1023px) {
