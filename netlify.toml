@@ -1,15 +1,15 @@
- 1 [build]
-    2   # The directory where the React app lives
-    3   base = "app"
-    4   
-    5   # The command to install dependencies and build the project
-    6   command = "npm install && npm run build"
-    7   
-    8   # The directory Vite outputs to (relative to the base directory)
-    9   publish = "dist"
-   10
-   11 [[redirects]]
-   12   # This ensures React Router handles all routes correctly
-   13   from = "/*"
-   14   to = "/index.html"
-   15   status = 200
+[build]
+  # The directory where the React app lives
+  base = "app"
+  
+  # The command to install dependencies and build the project
+  command = "npm install && npm run build"
+  
+  # The directory Vite outputs to (relative to the base directory)
+  publish = "dist"
+
+[[redirects]]
+  # This ensures React Router handles all routes correctly
+  from = "/*"
+  to = "/index.html"
+  status = 200
