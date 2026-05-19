@@ -75,7 +75,7 @@ const LoadingScreen: React.FC<{ onFinished?: () => void }> = ({ onFinished }) =>
           display: inline-block;
           width: 2px;
           height: 1em;
-          background-color: var(--color-deep-berry);
+          background-color: var(--color-rich-berry);
           margin-left: 4px;
           vertical-align: text-bottom;
           animation: blink 1s step-end infinite;
@@ -101,10 +101,10 @@ const styles: Record<string, React.CSSProperties> = {
     transition: 'opacity 0.8s ease-out, visibility 0.8s ease-out',
   },
   textContainer: {
-    color: 'var(--color-deep-berry)',
-    fontFamily: 'var(--font-sans)',
+    color: 'var(--color-rich-berry)',
+    fontFamily: 'var(--font-serif)',
     fontWeight: 500,
-    fontSize: '22px',
+    fontSize: '28px',
     letterSpacing: '0.35em',
     textTransform: 'uppercase',
     paddingLeft: '0.35em',

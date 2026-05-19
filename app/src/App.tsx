@@ -10,7 +10,7 @@ import { modules } from './modules';
 
 import * as Icons from 'lucide-react';
 
-export type UserRole = 'User' | 'Admin' | null;
+export type UserRole = 'User' | 'Admin';
 
 const AppLayout: React.FC<{ 
   children: React.ReactNode, 
@@ -30,10 +30,6 @@ const AppLayout: React.FC<{
   useEffect(() => {
     setIsSidebarOpen(false);
   }, [location.pathname]);
-
-  if (!userRole && location.pathname !== '/login') {
-    return <Navigate to="/login" replace />;
-  }
 
   // Filter modules for sidebar based on role
   const visibleModules = modules.filter(m => {
@@ -102,7 +98,7 @@ const AppLayout: React.FC<{
 };
 
 const App: React.FC = () => {
-  const [userRole, setUserRole] = useState<UserRole>(null);
+  const [userRole, setUserRole] = useState<UserRole>('User');
   const [isAppLoading, setIsAppLoading] = useState(true);
 
   const handleLogin = (role: UserRole) => {
@@ -110,14 +106,16 @@ const App: React.FC = () => {
   };
 
   const handleLogout = () => {
-    setUserRole(null);
+    setUserRole('User');
   };
 
   return (
     <Router>
       {isAppLoading && <LoadingScreen onFinished={() => setIsAppLoading(false)} />}
       <Routes>
-        <Route path="/login" element={<Login onLogin={handleLogin} />} />
+        <Route path="/admin" element={
+          userRole === 'Admin' ? <Navigate to="/" replace /> : <Login onLogin={handleLogin} />
+        } />
         <Route 
           path="/*" 
           element={
@@ -156,7 +154,7 @@ const styles: Record<string, React.CSSProperties> = {
     width: '56px',
     height: '56px',
     borderRadius: '28px',
-    backgroundColor: 'var(--color-deep-berry)',
+    backgroundColor: 'var(--color-rich-berry)',
     color: 'var(--color-white)',
     display: 'flex',
     alignItems: 'center',

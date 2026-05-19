@@ -31,7 +31,7 @@ const Dashboard: React.FC<DashboardProps> = ({ userRole }) => {
           return (
             <Link key={module.id} to={`/view/${module.id}`} style={styles.card}>
               <div style={styles.cardIcon}>
-                <IconComponent size={32} color="var(--color-rose-blush)" />
+                <IconComponent size={32} color="var(--color-rose-gold)" />
               </div>
               <h3 style={styles.cardTitle}>{module.name}</h3>
               <p style={styles.cardCategory}>{module.category}</p>
@@ -55,8 +55,9 @@ const styles: Record<string, React.CSSProperties> = {
   },
   title: {
     fontSize: '36px',
-    color: 'var(--color-deep-berry)',
+    color: 'var(--color-rich-berry)',
     marginBottom: '12px',
+    fontFamily: 'var(--font-serif)',
   },
   subtitle: {
     fontSize: '18px',
@@ -72,7 +73,7 @@ const styles: Record<string, React.CSSProperties> = {
   card: {
     backgroundColor: 'var(--color-white)',
     border: '1px solid var(--color-graceful-blush)',
-    borderRadius: '16px',
+    borderRadius: 'var(--radius-lg)',
     padding: '32px 24px',
     textAlign: 'center',
     transition: 'all 0.3s ease',
@@ -86,13 +87,15 @@ const styles: Record<string, React.CSSProperties> = {
   cardTitle: {
     fontSize: '18px',
     margin: '0 0 8px 0',
-    color: 'var(--color-deep-berry)',
+    color: 'var(--color-rich-berry)',
+    fontFamily: 'var(--font-serif)',
   },
   cardCategory: {
     fontSize: '12px',
     textTransform: 'uppercase',
     letterSpacing: '1px',
     opacity: 0.5,
+    fontFamily: 'var(--font-sans)',
   },
 };
 

@@ -65,7 +65,7 @@ const styles: Record<string, React.CSSProperties> = {
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: '#f9f9f9',
+    backgroundColor: 'var(--color-background)',
   },
   header: {
     padding: '12px 16px',
@@ -79,20 +79,22 @@ const styles: Record<string, React.CSSProperties> = {
   title: {
     fontSize: '16px',
     margin: 0,
-    color: 'var(--color-deep-berry)',
+    color: 'var(--color-rich-berry)',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     maxWidth: '180px',
+    fontFamily: 'var(--font-serif)',
   },
   badge: {
     fontSize: '10px',
     padding: '4px 12px',
     borderRadius: '12px',
     backgroundColor: 'var(--color-graceful-blush)',
-    color: 'var(--color-deep-berry)',
+    color: 'var(--color-rich-berry)',
     fontWeight: '600',
     textTransform: 'uppercase',
+    fontFamily: 'var(--font-sans)',
   },
   iframeWrapper: {
     flex: 1,

@@ -40,7 +40,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
           <div style={styles.buttonGroup}>
             <button 
               onClick={() => handleMockLogin('User')} 
-              style={styles.googleButton}
+              style={styles.primaryButton}
               disabled={loading}
             >
               <LogIn size={20} style={styles.icon} />
@@ -49,7 +49,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
 
             <button 
               onClick={() => handleMockLogin('Admin')} 
-              style={styles.adminButton}
+              style={styles.secondaryButton}
               disabled={loading}
             >
               {loading ? 'Accessing...' : 'Sign in as Administrator'}
@@ -71,15 +71,15 @@ const styles: Record<string, React.CSSProperties> = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'var(--color-graceful-blush)',
+    backgroundColor: 'var(--color-background)',
     padding: '20px',
   },
   card: {
     width: '100%',
     maxWidth: '450px',
     backgroundColor: 'var(--color-white)',
-    borderRadius: '24px',
-    boxShadow: '0 20px 40px rgba(74, 59, 61, 0.1)',
+    borderRadius: 'var(--radius-lg)',
+    boxShadow: '0 20px 40px rgba(62, 2, 23, 0.1)',
     overflow: 'hidden',
     textAlign: 'center',
   },
@@ -92,7 +92,7 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: '28px',
     letterSpacing: '4px',
     margin: 0,
-    color: 'var(--color-deep-berry)',
+    color: 'var(--color-rich-berry)',
     fontFamily: 'var(--font-serif)',
   },
   logoSubtext: {
@@ -101,21 +101,24 @@ const styles: Record<string, React.CSSProperties> = {
     marginTop: '8px',
     opacity: 0.7,
     textTransform: 'uppercase',
+    fontFamily: 'var(--font-sans)',
   },
   content: {
     padding: '40px 48px',
   },
   title: {
     fontSize: '22px',
-    color: 'var(--color-deep-berry)',
+    color: 'var(--color-rich-berry)',
     marginBottom: '12px',
+    fontFamily: 'var(--font-serif)',
   },
   subtitle: {
     fontSize: '14px',
-    color: 'var(--color-deep-berry)',
+    color: 'var(--color-rich-berry)',
     opacity: 0.6,
     marginBottom: '32px',
     lineHeight: '1.6',
+    fontFamily: 'var(--font-sans)',
   },
   buttonGroup: {
     display: 'flex',
@@ -123,37 +126,40 @@ const styles: Record<string, React.CSSProperties> = {
     gap: '12px',
     marginBottom: '24px',
   },
-  googleButton: {
+  primaryButton: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     gap: '12px',
     padding: '14px',
-    borderRadius: '12px',
-    backgroundColor: 'var(--color-deep-berry)',
+    borderRadius: 'var(--radius-md)',
+    backgroundColor: 'var(--color-rose-gold)',
     color: 'var(--color-white)',
     fontSize: '15px',
     fontWeight: '600',
     transition: 'opacity 0.2s',
+    fontFamily: 'var(--font-sans)',
   },
-  adminButton: {
+  secondaryButton: {
     padding: '14px',
-    borderRadius: '12px',
+    borderRadius: 'var(--radius-md)',
     backgroundColor: 'transparent',
-    border: '1px solid var(--color-rose-blush)',
-    color: 'var(--color-rose-blush)',
+    border: '1px solid var(--color-rich-berry)',
+    color: 'var(--color-rich-berry)',
     fontSize: '15px',
     fontWeight: '600',
     transition: 'all 0.2s',
+    fontFamily: 'var(--font-sans)',
   },
   icon: {
     opacity: 0.9,
   },
   policyNote: {
     fontSize: '12px',
-    color: 'var(--color-deep-berry)',
+    color: 'var(--color-rich-berry)',
     opacity: 0.5,
     marginTop: '16px',
+    fontFamily: 'var(--font-sans)',
   },
   link: {
     textDecoration: 'underline',

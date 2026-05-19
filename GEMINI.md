@@ -32,7 +32,7 @@ The **Nancy Pahuja Hub** is a React-based application designed to showcase vario
   1. Create a directory in `app/` (e.g., `app/new_feature/`).
   2. Add `code.html` (and optionally `screen.png`) to that directory.
   3. Add a new entry to the `modules` array in `app/src/modules.ts`.
-- **Styling:** Use CSS variables defined in `:root` in `index.css` for consistent branding (e.g., `--color-deep-berry`, `--font-serif`).
+- **Styling:** Use CSS variables defined in `:root` in `index.css` for consistent branding (e.g., `--color-rich-berry`, `--font-serif`).
 - **Icons:** Use icons from `lucide-react` and register them in `modules.ts`.
 
 ## Development Workflows
