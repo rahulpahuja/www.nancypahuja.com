@@ -10,14 +10,15 @@ interface SidebarProps {
   userRole: UserRole;
   onLogout: () => void;
   modules: Module[];
+  showToggle?: boolean;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, userRole, onLogout, modules }) => {
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, userRole, onLogout, modules, showToggle = true }) => {
   const categories = userRole === 'Admin' ? ['User', 'Admin', 'Showcase'] : ['User'];
 
   return (
     <>
-      {!isOpen && (
+      {showToggle && !isOpen && (
         <button 
           onClick={() => setIsOpen(true)} 
           style={styles.mobileToggle}

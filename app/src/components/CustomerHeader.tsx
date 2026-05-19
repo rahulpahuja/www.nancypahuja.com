@@ -1,14 +1,12 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { ShoppingBag, User, Search, Menu, LogOut } from 'lucide-react';
-import { modules } from '../modules';
+import { ShoppingBag, User, Search, Menu } from 'lucide-react';
 
 interface CustomerHeaderProps {
   onMenuClick: () => void;
-  onLogout: () => void;
 }
 
-const CustomerHeader: React.FC<CustomerHeaderProps> = ({ onMenuClick, onLogout }) => {
+const CustomerHeader: React.FC<CustomerHeaderProps> = ({ onMenuClick }) => {
   const navigate = useNavigate();
 
   return (
@@ -18,16 +16,16 @@ const CustomerHeader: React.FC<CustomerHeaderProps> = ({ onMenuClick, onLogout }
           <button style={styles.iconButton} onClick={onMenuClick}>
             <Menu size={24} />
           </button>
-          <div style={styles.logo} onClick={() => navigate('/')}>
+          <div style={styles.logo} onClick={() => navigate('/view/homepage')}>
             NANCY PAHUJA
           </div>
         </div>
 
         <nav style={styles.nav} className="desktop-only">
-          <NavLink to="/view/homepage" style={styles.navLink}>Home</NavLink>
-          <NavLink to="/view/product_listing" style={styles.navLink}>Shop</NavLink>
-          <NavLink to="/view/artisanal_heritage" style={styles.navLink}>Our Story</NavLink>
-          <NavLink to="/view/order_history" style={styles.navLink}>Orders</NavLink>
+          <NavLink to="/view/homepage" style={styles.navLink} className="customer-nav-link">Home</NavLink>
+          <NavLink to="/view/product_listing" style={styles.navLink} className="customer-nav-link">Shop</NavLink>
+          <NavLink to="/view/artisanal_heritage" style={styles.navLink} className="customer-nav-link">Our Story</NavLink>
+          <NavLink to="/view/order_history" style={styles.navLink} className="customer-nav-link">Orders</NavLink>
         </nav>
 
         <div style={styles.right}>
@@ -35,8 +33,8 @@ const CustomerHeader: React.FC<CustomerHeaderProps> = ({ onMenuClick, onLogout }
             <Search size={20} />
           </button>
           <div className="user-menu-container" style={{ position: 'relative' }}>
-            <button style={styles.iconButton} onClick={onLogout} title="Logout">
-              <LogOut size={20} />
+            <button style={styles.iconButton} onClick={() => navigate('/view/order_history')} title="Account">
+              <User size={20} />
             </button>
           </div>
           <button style={styles.iconButton} onClick={() => navigate('/view/cart_checkout')}>
@@ -47,6 +45,10 @@ const CustomerHeader: React.FC<CustomerHeaderProps> = ({ onMenuClick, onLogout }
 
       <style>{`
         .mobile-only { display: none; }
+        .customer-nav-link.active {
+          color: var(--color-rose-gold) !important;
+          opacity: 1 !important;
+        }
         @media (max-width: 768px) {
           .desktop-only { display: none; }
           .mobile-only { display: block; }

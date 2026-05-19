@@ -1,6 +1,6 @@
 import React from 'react';
-import { useParams, Navigate } from 'react-router-dom';
-import { modules } from '../modules';
+import { useParams, Navigate, useNavigate } from 'react-router-dom';
+import { findModuleByLabel, findModuleByPath, modules } from '../modules';
 import { UserRole } from '../App';
 
 interface ScreenShellProps {
@@ -9,6 +9,7 @@ interface ScreenShellProps {
 
 const ScreenShell: React.FC<ScreenShellProps> = ({ userRole }) => {
   const { moduleId } = useParams<{ moduleId: string }>();
+  const navigate = useNavigate();
   const module = modules.find((m) => m.id === moduleId);
 
   // Permission check
@@ -21,7 +22,7 @@ const ScreenShell: React.FC<ScreenShellProps> = ({ userRole }) => {
     return <Navigate to="/" replace />;
   }
 
-  const hideIframeHeader = (e: React.SyntheticEvent<HTMLIFrameElement>) => {
+  const prepareIframeNavigation = (e: React.SyntheticEvent<HTMLIFrameElement>) => {
     try {
       const iframe = e.currentTarget;
       const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
@@ -33,6 +34,35 @@ const ScreenShell: React.FC<ScreenShellProps> = ({ userRole }) => {
           .layout-container { padding-top: 0 !important; }
         `;
         iframeDoc.head.appendChild(style);
+
+        iframeDoc.addEventListener('click', (clickEvent) => {
+          const target = clickEvent.target;
+          if (!(target instanceof iframeDoc.defaultView!.Element)) return;
+
+          const anchor = target.closest('a[href]');
+          if (anchor instanceof iframeDoc.defaultView!.HTMLAnchorElement) {
+            const href = anchor.getAttribute('href') || '';
+            const linkedModule = href === '/'
+              ? modules.find((item) => item.id === 'homepage')
+              : findModuleByPath(anchor.href) || findModuleByPath(href) || findModuleByLabel(anchor.textContent || '');
+
+            if (linkedModule) {
+              clickEvent.preventDefault();
+              navigate(`/view/${linkedModule.id}`);
+            }
+          }
+
+          const button = target.closest('button');
+          if (button instanceof iframeDoc.defaultView!.HTMLButtonElement) {
+            const label = button.textContent || '';
+            const linkedModule = findModuleByLabel(label);
+
+            if (linkedModule) {
+              clickEvent.preventDefault();
+              navigate(`/view/${linkedModule.id}`);
+            }
+          }
+        });
       }
     } catch (err) {
       console.warn('Could not hide iframe header due to cross-origin restrictions or other error:', err);
@@ -53,7 +83,7 @@ const ScreenShell: React.FC<ScreenShellProps> = ({ userRole }) => {
           style={styles.iframe}
           title={module.name}
           frameBorder="0"
-          onLoad={hideIframeHeader}
+          onLoad={prepareIframeNavigation}
         />
       </div>
     </div>

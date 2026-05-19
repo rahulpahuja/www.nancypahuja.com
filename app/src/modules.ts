@@ -92,3 +92,65 @@ export const modules: Module[] = [
     category: 'Showcase'
   }
 ];
+
+const normalizedModulePathMap = new Map(
+  modules.map((module) => [normalizePath(module.path), module])
+);
+
+const labelModuleIdMap: Record<string, string> = {
+  home: 'homepage',
+  homepage: 'homepage',
+  shop: 'product_listing',
+  collections: 'product_listing',
+  collection: 'product_listing',
+  'new arrivals': 'product_listing',
+  'summer lawn': 'product_listing',
+  'embroidered sets': 'product_listing',
+  'final sale': 'product_listing',
+  'view all': 'product_listing',
+  story: 'artisanal_heritage',
+  'our story': 'artisanal_heritage',
+  about: 'artisanal_heritage',
+  'about us': 'artisanal_heritage',
+  account: 'order_history',
+  'my account': 'order_history',
+  orders: 'order_history',
+  'order history': 'order_history',
+  cart: 'cart_checkout',
+  checkout: 'cart_checkout',
+  bag: 'cart_checkout',
+  'add to bag': 'pdp_add_to_bag',
+  'return to cart': 'cart_checkout',
+  invoice: 'order_invoice',
+  'view invoice': 'order_invoice',
+  details: 'product_detail',
+  'view details': 'product_detail',
+  inventory: 'admin_upload',
+  dashboard: 'admin_dashboard',
+};
+
+export function normalizePath(path: string): string {
+  try {
+    const origin = typeof window === 'undefined' ? 'http://localhost' : window.location.origin;
+    const parsed = new URL(path, origin);
+    return parsed.pathname.replace(/\/+$/, '') || '/';
+  } catch {
+    return path.split(/[?#]/)[0].replace(/\/+$/, '') || '/';
+  }
+}
+
+export function findModuleByPath(path: string): Module | undefined {
+  const normalizedPath = normalizePath(path);
+  return normalizedModulePathMap.get(normalizedPath)
+    || modules.find((module) => normalizedPath.endsWith(normalizePath(module.path)));
+}
+
+export function findModuleByLabel(label: string): Module | undefined {
+  const normalizedLabel = label.trim().toLowerCase().replace(/\s+/g, ' ');
+  const moduleId = labelModuleIdMap[normalizedLabel] || Object
+    .entries(labelModuleIdMap)
+    .sort(([left], [right]) => right.length - left.length)
+    .find(([key]) => normalizedLabel.includes(key))?.[1];
+
+  return moduleId ? modules.find((module) => module.id === moduleId) : undefined;
+}

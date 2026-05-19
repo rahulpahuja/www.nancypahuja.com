@@ -45,6 +45,7 @@ const AppLayout: React.FC<{
         userRole={userRole}
         onLogout={onLogout}
         modules={visibleModules}
+        showToggle={!showCustomerHeader}
       />
       <div 
         className="main-content" 
@@ -56,7 +57,6 @@ const AppLayout: React.FC<{
         {showCustomerHeader && (
           <CustomerHeader 
             onMenuClick={() => setIsSidebarOpen(!isSidebarOpen)} 
-            onLogout={onLogout}
           />
         )}
         <main style={{ 
