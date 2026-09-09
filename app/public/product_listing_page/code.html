@@ -233,7 +233,7 @@
 <p class="text-on-surface-variant text-base font-normal leading-normal font-body-lg">Explore our elegant and artisanal collection of lawn suits.</p>
 </div>
 </div>
-<div id="filter-bar" class="relative flex gap-3 px-3 py-2 flex-wrap pr-4 font-button">
+<div id="filter-bar" class="relative flex flex-wrap items-center gap-3 px-4 py-2 font-button">
 <button type="button" data-filter="price" class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full border border-outline-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors duration-200 pl-4 pr-2">
 <p class="text-on-surface text-sm font-medium leading-normal">Price</p>
 <div class="text-on-surface" data-icon="CaretDown" data-size="20px" data-weight="regular">
@@ -258,11 +258,9 @@
 <span class="material-symbols-outlined" style="font-size: 20px;">expand_more</span>
 </div>
 </button>
-</div>
-<div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3 font-body-md">
-<label class="flex flex-col min-w-40 flex-1">
-<p class="text-on-surface text-base font-medium leading-normal pb-2 font-label-caps uppercase tracking-wider text-xs">Sort By</p>
-<select id="sort-select" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-on-surface focus:outline-none focus:ring-1 focus:ring-secondary border border-outline-variant bg-surface-container-lowest h-12 bg-[image:--select-button-svg] placeholder:text-on-surface-variant px-4 text-sm font-normal leading-normal transition-all duration-200">
+<label class="flex items-center gap-2 ml-auto shrink-0">
+<span class="text-on-surface-variant text-xs font-label-caps uppercase tracking-wider">Sort</span>
+<select id="sort-select" class="appearance-none h-8 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-1 focus:ring-secondary bg-[image:--select-button-svg] bg-no-repeat bg-[position:right_0.5rem_center] pl-4 pr-9 text-sm font-medium leading-normal transition-colors duration-200">
 <option value="newest">Newest Arrivals</option>
 <option value="price_asc">Price: Low to High</option>
 <option value="price_desc">Price: High to Low</option>

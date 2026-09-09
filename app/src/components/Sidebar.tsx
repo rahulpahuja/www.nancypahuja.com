@@ -65,8 +65,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, userRole, onLogout
 
         <nav style={styles.nav}>
           <div style={styles.categoryGroup}>
-            <Link 
-              to="/" 
+            <Link
+              to="/hub"
               onClick={() => setIsOpen(false)}
               style={styles.dashboardLink}
             >

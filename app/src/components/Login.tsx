@@ -16,7 +16,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
   const [loading, setLoading] = useState(false);
   const [pendingRole, setPendingRole] = useState<'User' | 'Admin' | null>(null);
 
-  const returnTo = new URLSearchParams(location.search).get('returnTo') || '/profile';
+  const returnTo = new URLSearchParams(location.search).get('returnTo') || '/view/homepage';
 
   const handleMockLogin = (role: 'User' | 'Admin') => {
     setPendingRole(role);
@@ -37,7 +37,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
   if (loading && pendingRole) {
     return <LoadingScreen onFinished={() => {
       onLogin(pendingRole);
-      navigate('/');
+      navigate(pendingRole === 'Admin' ? '/hub' : '/view/homepage');
     }} />;
   }
 

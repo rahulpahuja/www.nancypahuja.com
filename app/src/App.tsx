@@ -161,14 +161,16 @@ const AppRoutes: React.FC = () => {
       <Routes>
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/admin" element={
-          userRole === 'Admin' ? <Navigate to="/" replace /> : <Login onLogin={handleLogin} />
+          userRole === 'Admin' ? <Navigate to="/hub" replace /> : <Login onLogin={handleLogin} />
         } />
         <Route 
           path="/*" 
           element={
             <AppLayout userRole={userRole} onLogout={handleLogout}>
               <Routes>
-                <Route path="/" element={<Dashboard userRole={userRole} />} />
+                {/* The site opens on the customer storefront; the hub launcher lives at /hub. */}
+                <Route path="/" element={<Navigate to="/view/homepage" replace />} />
+                <Route path="/hub" element={<Dashboard userRole={userRole} />} />
                 <Route path="/view/:moduleId" element={<ScreenShell userRole={userRole} />} />
                 <Route path="/profile" element={<UserProfile />} />
                 <Route path="/shots" element={<ShotsIndex />} />
