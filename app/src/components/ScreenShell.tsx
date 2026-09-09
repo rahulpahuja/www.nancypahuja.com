@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation, useParams, Navigate, useNavigate } from 'react-router-dom';
 import { push, ref, serverTimestamp, set } from 'firebase/database';
 import { useAuth } from '../auth';
+import { useCart } from '../cart/CartProvider';
 import { database } from '../firebase';
 import { findModuleByLabel, findModuleByPath, modules } from '../modules';
 import { UserRole } from '../App';
@@ -15,6 +16,7 @@ const ScreenShell: React.FC<ScreenShellProps> = ({ userRole }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { user, profile, signInWithGoogle } = useAuth();
+  const { addItem } = useCart();
   const module = modules.find((m) => m.id === moduleId);
 
   // Permission check
@@ -23,8 +25,8 @@ const ScreenShell: React.FC<ScreenShellProps> = ({ userRole }) => {
     module.category === 'User'
   );
 
-  if (!module || !hasPermission) {
-    return <Navigate to="/" replace />;
+  if (!module || !module.path || !hasPermission) {
+    return <Navigate to={module?.route ?? '/'} replace />;
   }
 
   if (module.id === 'cart_checkout' && !user) {
@@ -102,17 +104,40 @@ const ScreenShell: React.FC<ScreenShellProps> = ({ userRole }) => {
           const button = target.closest('button');
           if (button instanceof iframeDoc.defaultView!.HTMLButtonElement) {
             const label = button.textContent || '';
+            const lowerLabel = label.toLowerCase();
             const linkedModule = findModuleByLabel(label);
 
-            if (label.toLowerCase().includes('sign in with google')) {
+            if (lowerLabel.includes('sign in with google')) {
               clickEvent.preventDefault();
               signInWithGoogle();
               return;
             }
 
-            if (module.id === 'cart_checkout' && label.toLowerCase().includes('proceed to payment')) {
+            if (module.id === 'cart_checkout' && lowerLabel.includes('proceed to payment')) {
               clickEvent.preventDefault();
               submitCheckout(iframeDoc);
+              return;
+            }
+
+            if (/\badd to (bag|cart|shopping bag)\b/.test(lowerLabel)) {
+              // Add-to-cart is terminal: update the cart (the header badge is the
+              // confirmation) and stay on the page instead of following a stray
+              // label match to another screen.
+              clickEvent.preventDefault();
+              const productName = iframeDoc.querySelector('h1')?.textContent?.trim() || module.name;
+              addItem(productName);
+
+              if (!button.dataset.cartFlash) {
+                button.dataset.cartFlash = '1';
+                const originalHtml = button.innerHTML;
+                button.textContent = 'Added to Bag ✓';
+                button.style.pointerEvents = 'none';
+                iframeDoc.defaultView?.setTimeout(() => {
+                  button.innerHTML = originalHtml;
+                  button.style.pointerEvents = '';
+                  delete button.dataset.cartFlash;
+                }, 1400);
+              }
               return;
             }
 
@@ -120,6 +145,25 @@ const ScreenShell: React.FC<ScreenShellProps> = ({ userRole }) => {
               clickEvent.preventDefault();
               navigate(`/view/${linkedModule.id}`);
             }
+            return;
+          }
+
+          // Featured Collection tiles on the homepage open the listing filtered
+          // to that collection.
+          const collectionTile = target.closest('[data-collection]');
+          if (module.id === 'homepage' && collectionTile) {
+            clickEvent.preventDefault();
+            const collection = collectionTile.getAttribute('data-collection') || '';
+            navigate(`/view/product_listing?collection=${encodeURIComponent(collection)}`);
+            return;
+          }
+
+          // Product cards in the listing prototype are plain <div>s; treat a
+          // click anywhere on a card as opening the product detail screen.
+          const productCard = target.closest('div.group');
+          if (module.id === 'product_listing' && productCard?.querySelector('h3')) {
+            clickEvent.preventDefault();
+            navigate('/view/product_detail');
           }
         });
       }
@@ -213,7 +257,8 @@ const ScreenShell: React.FC<ScreenShellProps> = ({ userRole }) => {
       )}
       <div style={styles.iframeWrapper}>
         <iframe
-          src={module.path}
+          key={module.id}
+          src={module.id === 'product_listing' ? `${module.path}${location.search}` : module.path}
           style={styles.iframe}
           title={module.name}
           frameBorder="0"

@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { ShoppingBag, User, Search, Menu } from 'lucide-react';
 import { useAuth } from '../auth';
+import { useCart } from '../cart/CartProvider';
 
 interface CustomerHeaderProps {
   onMenuClick: () => void;
@@ -10,6 +11,7 @@ interface CustomerHeaderProps {
 const CustomerHeader: React.FC<CustomerHeaderProps> = ({ onMenuClick }) => {
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { uniqueCount, totalCount } = useCart();
 
   return (
     <header style={styles.header}>
@@ -39,8 +41,15 @@ const CustomerHeader: React.FC<CustomerHeaderProps> = ({ onMenuClick }) => {
               <User size={20} />
             </button>
           </div>
-          <button style={styles.iconButton} onClick={() => navigate('/view/cart_checkout')}>
+          <button
+            style={{ ...styles.iconButton, position: 'relative' }}
+            onClick={() => navigate('/view/cart_checkout')}
+            aria-label={`Cart, ${totalCount} item${totalCount === 1 ? '' : 's'} across ${uniqueCount} product${uniqueCount === 1 ? '' : 's'}`}
+          >
             <ShoppingBag size={20} />
+            {totalCount > 0 && (
+              <span style={styles.cartBadge}>{totalCount > 99 ? '99+' : totalCount}</span>
+            )}
           </button>
         </div>
       </div>
@@ -119,6 +128,22 @@ const styles: Record<string, React.CSSProperties> = {
     padding: '8px',
     borderRadius: '50%',
     transition: 'background-color 0.2s',
+  },
+  cartBadge: {
+    position: 'absolute',
+    top: '0',
+    right: '0',
+    minWidth: '18px',
+    height: '18px',
+    padding: '0 4px',
+    borderRadius: '9px',
+    backgroundColor: 'var(--color-rich-berry)',
+    color: 'var(--color-white)',
+    fontSize: '11px',
+    fontWeight: 700,
+    lineHeight: '18px',
+    textAlign: 'center',
+    fontFamily: 'var(--font-sans)',
   },
 };
 

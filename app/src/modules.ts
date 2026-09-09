@@ -1,9 +1,20 @@
 export interface Module {
   id: string;
   name: string;
-  path: string;
+  /** Static prototype rendered in an iframe. Mutually exclusive with `route`. */
+  path?: string;
+  /** Internal React route rendered directly (no iframe). Mutually exclusive with `path`. */
+  route?: string;
   icon: string;
   category: 'User' | 'Admin' | 'Showcase';
+}
+
+/** Link target for a module in the hub (dashboard cards and sidebar). */
+export function moduleLink(module: Module): string {
+  if (module.route) return module.route;
+  return module.category === 'Admin'
+    ? `/admin/view/${module.id}`
+    : `/view/${module.id}`;
 }
 
 export const modules: Module[] = [
@@ -64,6 +75,20 @@ export const modules: Module[] = [
     category: 'User'
   },
   {
+    id: 'product_shots',
+    name: 'Product Shots',
+    route: '/shots',
+    icon: 'PlayCircle',
+    category: 'User'
+  },
+  {
+    id: 'admin_shots',
+    name: 'Product Shots',
+    route: '/admin/shots',
+    icon: 'Clapperboard',
+    category: 'Admin'
+  },
+  {
     id: 'admin_dashboard',
     name: 'Admin Dashboard',
     path: '/admin_analytics_dashboard/code.html',
@@ -94,7 +119,9 @@ export const modules: Module[] = [
 ];
 
 const normalizedModulePathMap = new Map(
-  modules.map((module) => [normalizePath(module.path), module])
+  modules
+    .filter((module): module is Module & { path: string } => Boolean(module.path))
+    .map((module) => [normalizePath(module.path), module])
 );
 
 const labelModuleIdMap: Record<string, string> = {
@@ -142,7 +169,7 @@ export function normalizePath(path: string): string {
 export function findModuleByPath(path: string): Module | undefined {
   const normalizedPath = normalizePath(path);
   return normalizedModulePathMap.get(normalizedPath)
-    || modules.find((module) => normalizedPath.endsWith(normalizePath(module.path)));
+    || modules.find((module) => module.path && normalizedPath.endsWith(normalizePath(module.path)));
 }
 
 export function findModuleByLabel(label: string): Module | undefined {

@@ -77,7 +77,7 @@
             "spacing": {
                     "grid-gutter": "16px",
                     "container-padding": "24px",
-                    "section-gap": "80px",
+                    "section-gap": "44px",
                     "base": "8px"
             },
             "fontFamily": {
@@ -176,7 +176,7 @@
 <!-- Shared Top NavBar Component (Strictly applied as requested) -->
 <div class="relative flex h-auto w-full flex-col bg-surface-container-lowest group/design-root overflow-x-hidden" style="--select-button-svg: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgb(115,115,115)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z%27%3e%3c/path%3e%3c/svg%3e'); font-family: &quot;Noto Serif&quot;, &quot;Noto Sans&quot;, sans-serif;">
 <div class="layout-container flex h-full grow flex-col">
-<div class="px-4 md:px-40 flex flex-1 justify-center py-5">
+<div class="px-4 md:px-12 flex flex-1 justify-center py-5">
 <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
 <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-outline-variant px-4 md:px-10 py-3">
 <div class="flex items-center gap-4 md:gap-8">
@@ -220,39 +220,39 @@
 </div>
 </div>
 </header>
-<div class="flex flex-wrap gap-2 p-4 font-body-md">
+<div class="flex flex-wrap gap-2 px-4 py-2 font-body-md">
 <a class="text-on-surface-variant text-base font-medium leading-normal hover:text-secondary transition-colors duration-200" href="#">Home</a>
 <span class="text-on-surface-variant text-base font-medium leading-normal">/</span>
 <a class="text-on-surface-variant text-base font-medium leading-normal hover:text-secondary transition-colors duration-200" href="#">Collections</a>
 <span class="text-on-surface-variant text-base font-medium leading-normal">/</span>
 <span class="text-on-surface text-base font-medium leading-normal">Lawn Suits</span>
 </div>
-<div class="flex flex-wrap justify-between gap-3 p-4">
+<div class="flex flex-wrap justify-between gap-3 px-4 py-2">
 <div class="flex min-w-72 flex-col gap-3 font-h1">
 <p class="text-on-surface text-4xl font-normal leading-tight tracking-[-0.033em]">Lawn Suits</p>
 <p class="text-on-surface-variant text-base font-normal leading-normal font-body-lg">Explore our elegant and artisanal collection of lawn suits.</p>
 </div>
 </div>
-<div class="flex gap-3 p-3 flex-wrap pr-4 font-button">
-<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full border border-outline-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors duration-200 pl-4 pr-2">
+<div id="filter-bar" class="relative flex gap-3 px-3 py-2 flex-wrap pr-4 font-button">
+<button type="button" data-filter="price" class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full border border-outline-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors duration-200 pl-4 pr-2">
 <p class="text-on-surface text-sm font-medium leading-normal">Price</p>
 <div class="text-on-surface" data-icon="CaretDown" data-size="20px" data-weight="regular">
 <span class="material-symbols-outlined" style="font-size: 20px;">expand_more</span>
 </div>
 </button>
-<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full border border-outline-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors duration-200 pl-4 pr-2">
+<button type="button" data-filter="color" class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full border border-outline-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors duration-200 pl-4 pr-2">
 <p class="text-on-surface text-sm font-medium leading-normal">Color</p>
 <div class="text-on-surface" data-icon="CaretDown" data-size="20px" data-weight="regular">
 <span class="material-symbols-outlined" style="font-size: 20px;">expand_more</span>
 </div>
 </button>
-<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full border border-outline-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors duration-200 pl-4 pr-2">
+<button type="button" data-filter="collection" class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full border border-outline-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors duration-200 pl-4 pr-2">
 <p class="text-on-surface text-sm font-medium leading-normal">Collection</p>
 <div class="text-on-surface" data-icon="CaretDown" data-size="20px" data-weight="regular">
 <span class="material-symbols-outlined" style="font-size: 20px;">expand_more</span>
 </div>
 </button>
-<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full border border-outline-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors duration-200 pl-4 pr-2">
+<button type="button" data-filter="fabric" class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full border border-outline-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors duration-200 pl-4 pr-2">
 <p class="text-on-surface text-sm font-medium leading-normal">Fabric</p>
 <div class="text-on-surface" data-icon="CaretDown" data-size="20px" data-weight="regular">
 <span class="material-symbols-outlined" style="font-size: 20px;">expand_more</span>
@@ -262,7 +262,7 @@
 <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3 font-body-md">
 <label class="flex flex-col min-w-40 flex-1">
 <p class="text-on-surface text-base font-medium leading-normal pb-2 font-label-caps uppercase tracking-wider text-xs">Sort By</p>
-<select class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-on-surface focus:outline-none focus:ring-1 focus:ring-secondary border border-outline-variant bg-surface-container-lowest h-12 bg-[image:--select-button-svg] placeholder:text-on-surface-variant px-4 text-sm font-normal leading-normal transition-all duration-200">
+<select id="sort-select" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-on-surface focus:outline-none focus:ring-1 focus:ring-secondary border border-outline-variant bg-surface-container-lowest h-12 bg-[image:--select-button-svg] placeholder:text-on-surface-variant px-4 text-sm font-normal leading-normal transition-all duration-200">
 <option value="newest">Newest Arrivals</option>
 <option value="price_asc">Price: Low to High</option>
 <option value="price_desc">Price: High to Low</option>
@@ -274,10 +274,10 @@
 </div>
 </div>
 <!-- Main Content: Product Grid -->
-<main class="max-w-[1200px] mx-auto px-container-padding pb-section-gap pt-8 bg-background">
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-grid-gutter gap-y-[48px]">
+<main class="max-w-[1320px] mx-auto px-container-padding pb-section-gap pt-8 bg-background">
+<div id="product-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-grid-gutter gap-y-8">
 <!-- Product Card 1 -->
-<div class="group relative flex flex-col gap-4 bg-surface-container-lowest p-2 rounded-lg ambient-shadow-hover transition-all duration-300">
+<div class="group relative flex flex-col gap-3 bg-surface-container-lowest p-1.5 rounded-lg ambient-shadow-hover transition-all duration-300" data-name="Gulab Suit" data-price="185" data-collection="Embroidered Sets" data-color="Blush" data-fabric="Lawn">
 <div class="relative overflow-hidden rounded-md aspect-[3/4] bg-surface-container-low">
 <img alt="Gulab Suit" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="A high-fashion editorial full-body shot of a South Asian model wearing an elegant, minimalist blush pink lawn suit with intricate botanical embroidery. The setting is a bright, airy studio with soft, diffused high-key lighting casting gentle shadows. The mood is sophisticated and serene, perfectly aligning with a pristine light-mode aesthetic, utilizing a palette of pure whites and soft graceful blush tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAObj4yMr8ycq3H8HfqPdQ9xJ6b__Pb0Gawdx4Wvb0ZzCnlGYcok9-P-gawbhXqXvTu0YTzn71s50M__bDll5CTF2PEGnok_J-_FdeEebSqqvSlplwt_y_u9u4VgGI_1oqSXMALz9OPmEjePYb6f9RmZNclCPrud6gEbneZjVuY0pm24LwjL-6NfnHtumkTMkHmN-nWFWQhnn6agsJ316wH2izQldu3XeZJ98XGq99NRgEdook-RaHTrcxO9RtwDfCWKgeYBRWkFCT3"/>
 <!-- Quick View Overlay -->
@@ -288,13 +288,13 @@
 </div>
 </div>
 <div class="flex flex-col items-center text-center px-2">
-<h3 class="font-h3 text-xl text-on-surface mb-1">Gulab Suit</h3>
+<h3 class="font-h3 text-lg text-on-surface mb-1">Gulab Suit</h3>
 <p class="font-body-md text-on-surface-variant mb-2">Artisanal Embroidered Lawn</p>
 <span class="font-body-lg font-medium text-secondary">₹185.00</span>
 </div>
 </div>
 <!-- Product Card 2 -->
-<div class="group relative flex flex-col gap-4 bg-surface-container-lowest p-2 rounded-lg ambient-shadow-hover transition-all duration-300">
+<div class="group relative flex flex-col gap-3 bg-surface-container-lowest p-1.5 rounded-lg ambient-shadow-hover transition-all duration-300" data-name="Jasmine Suit" data-price="165" data-collection="Daily Lawn" data-color="Ivory" data-fabric="Cotton">
 <div class="relative overflow-hidden rounded-md aspect-[3/4] bg-surface-container-low">
 <img alt="Jasmine Suit" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="A refined fashion photography portrait of a model donning a pristine white luxury lawn suit featuring delicate tone-on-tone lacework. The backdrop is a minimalist, slightly textured off-white wall illuminated by natural window light. The composition embodies tactile elegance and breathability, utilizing a strictly light-mode color scheme of pure whites and subtle warm gray undertones to convey timeless beauty." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMiDuQyBL_WtRH7MsFJ6eOq3KOvwV6c5TpedcVJVavO3aJEUInHO-6f2e3a1uIk3YXXgbQouqXXca6hKvRYbWdXI1Xa-R8o6NUBpKxu0q_kt90h5Oq2NSCGi6Hl_4cflzSJUBL8USHzL85EuRpwVcWZtKUoDfl8bs7aflKM-WC8qIsy9vrQkSiu1_OSw8SWDlDKn7HrkqgEh9GWZWpTyrMdjsYrxL_wUDSJn3xmoeCJZRpC6hvZ4SzWpAgcquVQBCp6Xb2IYPWa5IK"/>
 <div class="absolute inset-x-0 bottom-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center bg-gradient-to-t from-surface/80 to-transparent">
@@ -304,13 +304,13 @@
 </div>
 </div>
 <div class="flex flex-col items-center text-center px-2">
-<h3 class="font-h3 text-xl text-on-surface mb-1">Jasmine Suit</h3>
+<h3 class="font-h3 text-lg text-on-surface mb-1">Jasmine Suit</h3>
 <p class="font-body-md text-on-surface-variant mb-2">Classic Printed Lawn</p>
 <span class="font-body-lg font-medium text-secondary">₹165.00</span>
 </div>
 </div>
 <!-- Product Card 3 -->
-<div class="group relative flex flex-col gap-4 bg-surface-container-lowest p-2 rounded-lg ambient-shadow-hover transition-all duration-300">
+<div class="group relative flex flex-col gap-3 bg-surface-container-lowest p-1.5 rounded-lg ambient-shadow-hover transition-all duration-300" data-name="Lotus Suit" data-price="210" data-collection="Festive Edit" data-color="Berry" data-fabric="Silk Blend">
 <div class="relative overflow-hidden rounded-md aspect-[3/4] bg-surface-container-low">
 <img alt="Lotus Suit" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="A sophisticated editorial shot of a beautifully draped deep berry-colored South Asian lawn suit displayed against a stark, minimalist white background. The lighting is crisp and soft, highlighting the tactile texture of the fabric and the intricate rose gold thread work along the hem. The overall aesthetic is ethereal and high-end, contrasting the rich berry tones against an airy, light-mode environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdmJnSpf3iHhy5ZfDtnJI9X1g-3OnOymKsZrMdyG4-2QH_jhW4oag8jnUWv-43wE2Rln66CFV3HkAjbdsu55K71lcQ2yNV6EemhtdmruMb1hK378ulV6DiguvZ7yTDTYrXvPVfxzfTUKezv8b9wHj3i2n5CifRjfa-Rs6x1mBiVUKIAnFNXyBFi6foDWG107MNIspK7gtAOCQfYrhnkaCQy6PjFu86yDgPBUUQVzYkVTCvW1m9XFhIOCgVPaIxngul0vFU60DKW4PV"/>
 <div class="absolute inset-x-0 bottom-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center bg-gradient-to-t from-surface/80 to-transparent">
@@ -320,13 +320,13 @@
 </div>
 </div>
 <div class="flex flex-col items-center text-center px-2">
-<h3 class="font-h3 text-xl text-on-surface mb-1">Lotus Suit</h3>
+<h3 class="font-h3 text-lg text-on-surface mb-1">Lotus Suit</h3>
 <p class="font-body-md text-on-surface-variant mb-2">Premium Festive Lawn</p>
 <span class="font-body-lg font-medium text-secondary">₹210.00</span>
 </div>
 </div>
 <!-- Product Card 4 -->
-<div class="group relative flex flex-col gap-4 bg-surface-container-lowest p-2 rounded-lg ambient-shadow-hover transition-all duration-300">
+<div class="group relative flex flex-col gap-3 bg-surface-container-lowest p-1.5 rounded-lg ambient-shadow-hover transition-all duration-300" data-name="Marigold Suit" data-price="145" data-collection="Daily Lawn" data-color="Blush" data-fabric="Lawn">
 <div class="relative overflow-hidden rounded-md aspect-[3/4] bg-surface-container-low">
 <img alt="Marigold Suit" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="A minimalist lookbook image featuring a model wearing a soft ivory lawn suit with subtle vintage botanical prints in faded rose gold. The scene is bathed in warm, diffused morning light, emphasizing a calm and exclusive mood. The background is a vast expanse of negative space in pure white, ensuring the apparel's delicate details stand out in a bright, modern light-mode setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3TT5utEAEanDL9tw_iTchENgdcFD_3eJ1zfD1SuUosGi3CHKvzsKlNb4tyy1nZWqxLrJxIA46QG2GnhB1Eaz8mKetRoA0f3GY0ypzlqLeBa3aUzcSBAnz58fBx1FvuPvXS_xw5Wm7MJHzWj9E0mMoxnZDUcGWsviP1NXCoQ2YHhAvXvqL1uzTTfrechcXKR4Vx-bH3goBtm0cqyovFsO9og2lIVVcGEBFopmiPSObVxb1QSb5FDRQOXPdcYYGNqHwFIpVasIgi7yD"/>
 <div class="absolute inset-x-0 bottom-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center bg-gradient-to-t from-surface/80 to-transparent">
@@ -336,13 +336,13 @@
 </div>
 </div>
 <div class="flex flex-col items-center text-center px-2">
-<h3 class="font-h3 text-xl text-on-surface mb-1">Marigold Suit</h3>
+<h3 class="font-h3 text-lg text-on-surface mb-1">Marigold Suit</h3>
 <p class="font-body-md text-on-surface-variant mb-2">Everyday Essential Lawn</p>
 <span class="font-body-lg font-medium text-secondary">₹145.00</span>
 </div>
 </div>
 <!-- Product Card 5 -->
-<div class="group relative flex flex-col gap-4 bg-surface-container-lowest p-2 rounded-lg ambient-shadow-hover transition-all duration-300">
+<div class="group relative flex flex-col gap-3 bg-surface-container-lowest p-1.5 rounded-lg ambient-shadow-hover transition-all duration-300" data-name="Orchid Suit" data-price="195" data-collection="Evening Elegance" data-color="Berry" data-fabric="Silk Blend">
 <div class="relative overflow-hidden rounded-md aspect-[3/4] bg-surface-container-low">
 <img alt="Orchid Suit" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="A high-resolution detail shot of a luxury lawn suit featuring an ethereal blend of blush and muted berry tones, adorned with fine artisanal stitching. The fabric is styled loosely to show its airy quality against a stark white, seamless backdrop. The high-key lighting creates a soft, shadowless environment that perfectly captures the brand's delicate craftsmanship and clean, minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBl_4Q8DKGzIUcZL7Vi4PTT6N81QhqvclrqAUt1E5cewuOdvg9wR0ShJCb719oEN1M5yyNdLgwWwQ229DOQlEdTshQRO0z3apoA3tztivoUwjMy6_MU6jEbvLIp8VVKYJcLVT9UjDJe8Pj5rWaon0XJs_wfykHHAG8cbUOZ-vYobmkQPvsEPOKPhdGsX3y2TERYEdgfekm28P9I1k8BCcmHyjz1sA827LcZzLznqYBfI66SHMOtnEwTbQTGrdEqKGLw7Pr8jnHt0jR"/>
 <div class="absolute inset-x-0 bottom-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center bg-gradient-to-t from-surface/80 to-transparent">
@@ -352,13 +352,13 @@
 </div>
 </div>
 <div class="flex flex-col items-center text-center px-2">
-<h3 class="font-h3 text-xl text-on-surface mb-1">Orchid Suit</h3>
+<h3 class="font-h3 text-lg text-on-surface mb-1">Orchid Suit</h3>
 <p class="font-body-md text-on-surface-variant mb-2">Signature Lawn Collection</p>
 <span class="font-body-lg font-medium text-secondary">₹195.00</span>
 </div>
 </div>
 <!-- Product Card 6 -->
-<div class="group relative flex flex-col gap-4 bg-surface-container-lowest p-2 rounded-lg ambient-shadow-hover transition-all duration-300">
+<div class="group relative flex flex-col gap-3 bg-surface-container-lowest p-1.5 rounded-lg ambient-shadow-hover transition-all duration-300" data-name="Tulip Suit" data-price="225" data-collection="Summer Lawn" data-color="Blush" data-fabric="Lawn">
 <div class="relative overflow-hidden rounded-md aspect-[3/4] bg-surface-container-low">
 <img alt="Tulip Suit" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="An elegant, full-length fashion photograph of a woman wearing a sophisticated dark berry lawn suit with minimalist, geometric rose-gold embroidery. She stands in a spacious, sunlit gallery with pure white walls and light oak flooring. The atmosphere is calm and exclusive, utilizing a high-contrast yet airy visual style to emphasize the garment's rich color within a predominantly light, ethereal space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwVICA6FxN1DF1VipWlsxyoiVm7RV_u3Qg3LvJjXeZjE03HWoA5SVfIm58LGiCD4z7rJK0Y55jUZW2i9-vfqvQC7vco6VdNX7BSS1WpJKR7xk4VaM_q-mEUT2dDQ0dU8mrhj1_xsdNErUCo4CFGQHlisXWzihDUwGKNzdkNDi1taJun_Ua-auPrivvbkqJUUWHlNrqJ5dnTqhbkQa88lOYbsg6ha4T0Myiv-GT1Verwye0HVE47_LCD_bRr-h-zTjJQcqEPnNtlxG7"/>
 <div class="absolute inset-x-0 bottom-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center bg-gradient-to-t from-surface/80 to-transparent">
@@ -368,17 +368,243 @@
 </div>
 </div>
 <div class="flex flex-col items-center text-center px-2">
-<h3 class="font-h3 text-xl text-on-surface mb-1">Tulip Suit</h3>
+<h3 class="font-h3 text-lg text-on-surface mb-1">Tulip Suit</h3>
 <p class="font-body-md text-on-surface-variant mb-2">Evening Wear Lawn</p>
 <span class="font-body-lg font-medium text-secondary">₹225.00</span>
 </div>
 </div>
 </div>
 <!-- Pagination / Load More (Optional, added for completeness of PLP) -->
-<div class="flex justify-center mt-16 pt-8 border-t border-outline-variant/30">
-<button class="px-8 py-3 border border-secondary text-secondary font-button uppercase tracking-widest text-sm rounded-full hover:bg-surface-container-low transition-colors duration-200">
-                Load More Artistry
-            </button>
+<div class="mt-12 pt-8 border-t border-outline-variant/30 flex flex-col items-center gap-4">
+  <p id="results-info" class="text-sm text-on-surface-variant"></p>
+  <nav id="pagination" class="flex flex-wrap items-center justify-center gap-2"></nav>
 </div>
 </main>
+<script>
+  (function () {
+    var PAGE_SIZE = 8;
+    var grid = document.getElementById('product-grid');
+    var filterBar = document.getElementById('filter-bar');
+    var sortSelect = document.getElementById('sort-select');
+    var resultsInfo = document.getElementById('results-info');
+    var pagination = document.getElementById('pagination');
+    if (!grid || !filterBar) return;
+
+    var CANONICAL_COLLECTIONS = ['Embroidered Sets', 'Daily Lawn', 'Evening Elegance', 'Summer Lawn', 'Festive Edit'];
+    var CLONE_SUFFIX = ['Aari', 'Zardozi', 'Chikankari', 'Resham', 'Kashida', 'Phulkari'];
+    var CLONE_COLORS = ['Blush', 'Ivory', 'Berry', 'Sage', 'Rose'];
+    var CLONE_FABRICS = ['Lawn', 'Cotton', 'Silk Blend', 'Organza', 'Chiffon'];
+
+    var PRICE_RANGES = [
+      { value: '0-174', label: 'Under ₹175', lo: 0, hi: 174 },
+      { value: '175-210', label: '₹175 – ₹210', lo: 175, hi: 210 },
+      { value: '211-9999', label: 'Over ₹210', lo: 211, hi: 9999 }
+    ];
+
+    function readCard(el) {
+      return {
+        el: el,
+        name: el.getAttribute('data-name'),
+        price: Number(el.getAttribute('data-price')),
+        collection: el.getAttribute('data-collection'),
+        color: el.getAttribute('data-color'),
+        fabric: el.getAttribute('data-fabric')
+      };
+    }
+
+    var baseEls = Array.prototype.slice.call(grid.querySelectorAll(':scope > .group'));
+    var baseCards = baseEls.map(readCard);
+
+    var cards = baseCards.slice();
+    for (var i = 0; i < 12; i++) {
+      var base = baseCards[i % baseCards.length];
+      var clone = base.el.cloneNode(true);
+      var name = base.name + ' · ' + CLONE_SUFFIX[i % 6];
+      var price = Math.max(120, base.price + ((i % 5) - 2) * 15);
+      var collection = CANONICAL_COLLECTIONS[i % 5];
+      var color = CLONE_COLORS[i % 5];
+      var fabric = CLONE_FABRICS[i % 5];
+      clone.setAttribute('data-name', name);
+      clone.setAttribute('data-price', String(price));
+      clone.setAttribute('data-collection', collection);
+      clone.setAttribute('data-color', color);
+      clone.setAttribute('data-fabric', fabric);
+      var h3 = clone.querySelector('h3');
+      if (h3) h3.textContent = name;
+      var sub = clone.querySelector('p.font-body-md');
+      if (sub) sub.textContent = collection;
+      var priceEl = clone.querySelector('span.font-body-lg');
+      if (priceEl) priceEl.textContent = '₹' + price + '.00';
+      grid.appendChild(clone);
+      cards.push({ el: clone, name: name, price: price, collection: collection, color: color, fabric: fabric });
+    }
+
+    var filters = { price: new Set(), color: new Set(), collection: new Set(), fabric: new Set() };
+    var page = 1;
+    var sort = 'newest';
+    var panels = {};
+    var openFilter = null;
+
+    function distinctValues(key) {
+      var set = {};
+      cards.forEach(function (c) { set[c[key]] = true; });
+      return Object.keys(set).sort();
+    }
+
+    function optionsFor(key) {
+      if (key === 'price') {
+        return PRICE_RANGES.map(function (r) { return { value: r.value, label: r.label }; });
+      }
+      return distinctValues(key).map(function (v) { return { value: v, label: v }; });
+    }
+
+    function cardMatchesCategory(card, key) {
+      var set = filters[key];
+      if (set.size === 0) return true;
+      if (key === 'price') {
+        var ok = false;
+        set.forEach(function (val) {
+          var r = PRICE_RANGES.filter(function (x) { return x.value === val; })[0];
+          if (r && card.price >= r.lo && card.price <= r.hi) ok = true;
+        });
+        return ok;
+      }
+      return set.has(card[key]);
+    }
+
+    function isVisible(card) {
+      return cardMatchesCategory(card, 'price') &&
+        cardMatchesCategory(card, 'color') &&
+        cardMatchesCategory(card, 'collection') &&
+        cardMatchesCategory(card, 'fabric');
+    }
+
+    function computeMatches() {
+      var list = cards.filter(isVisible);
+      if (sort === 'price_asc') list.sort(function (a, b) { return a.price - b.price; });
+      else if (sort === 'price_desc') list.sort(function (a, b) { return b.price - a.price; });
+      return list;
+    }
+
+    function closeAllPanels() {
+      Object.keys(panels).forEach(function (k) { panels[k].hidden = true; });
+      openFilter = null;
+    }
+
+    function buildPanel(key) {
+      var panel = document.createElement('div');
+      panel.className = 'absolute left-0 top-full mt-2 z-30 min-w-[200px] bg-surface-container-lowest border border-outline-variant rounded-lg shadow-lg p-3 flex flex-col gap-2';
+      panel.hidden = true;
+      optionsFor(key).forEach(function (opt) {
+        var label = document.createElement('label');
+        label.className = 'flex items-center gap-2 text-sm cursor-pointer';
+        var input = document.createElement('input');
+        input.type = 'checkbox';
+        input.value = opt.value;
+        if (filters[key].has(opt.value)) input.checked = true;
+        input.addEventListener('click', function (event) { event.stopPropagation(); });
+        input.addEventListener('change', function (event) {
+          event.stopPropagation();
+          if (input.checked) filters[key].add(opt.value);
+          else filters[key].delete(opt.value);
+          page = 1;
+          render();
+        });
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(opt.label));
+        panel.appendChild(label);
+      });
+      panel.addEventListener('click', function (event) { event.stopPropagation(); });
+      return panel;
+    }
+
+    Array.prototype.slice.call(filterBar.querySelectorAll('button[data-filter]')).forEach(function (pill) {
+      var key = pill.getAttribute('data-filter');
+      pill.classList.add('relative');
+      pill.addEventListener('click', function (event) {
+        event.stopPropagation();
+        if (!panels[key]) {
+          panels[key] = buildPanel(key);
+          pill.appendChild(panels[key]);
+        }
+        var willOpen = openFilter !== key;
+        closeAllPanels();
+        if (willOpen) {
+          panels[key].hidden = false;
+          openFilter = key;
+        }
+      });
+    });
+
+    if (sortSelect) {
+      sortSelect.addEventListener('change', function (event) {
+        event.stopPropagation();
+        sort = sortSelect.value;
+        page = 1;
+        render();
+      });
+    }
+
+    function pageButton(text, targetPage, opts) {
+      opts = opts || {};
+      var b = document.createElement('button');
+      b.type = 'button';
+      var cls = 'min-w-9 h-9 px-3 rounded-full text-sm font-medium transition-colors';
+      if (opts.active) cls += ' bg-secondary text-on-secondary';
+      else cls += ' border border-outline-variant text-on-surface hover:bg-surface-container-low';
+      if (opts.disabled) cls += ' opacity-40 pointer-events-none';
+      b.className = cls;
+      b.textContent = text;
+      b.addEventListener('click', function (event) {
+        event.stopPropagation();
+        page = targetPage;
+        render();
+        grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      return b;
+    }
+
+    function render() {
+      var matches = computeMatches();
+      var pages = Math.max(1, Math.ceil(matches.length / PAGE_SIZE));
+      if (page > pages) page = pages;
+      if (page < 1) page = 1;
+      var start = (page - 1) * PAGE_SIZE;
+      var slice = matches.slice(start, start + PAGE_SIZE);
+      var visibleSet = new Set(slice.map(function (c) { return c.el; }));
+
+      cards.forEach(function (c) {
+        if (visibleSet.has(c.el)) c.el.classList.remove('hidden');
+        else c.el.classList.add('hidden');
+      });
+
+      if (matches.length === 0) {
+        resultsInfo.textContent = 'No pieces match your filters.';
+      } else {
+        resultsInfo.textContent = 'Showing ' + (start + 1) + '–' +
+          Math.min(start + PAGE_SIZE, matches.length) + ' of ' + matches.length + ' pieces';
+      }
+
+      pagination.innerHTML = '';
+      pagination.appendChild(pageButton('Prev', page - 1, { disabled: page === 1 }));
+      for (var p = 1; p <= pages; p++) {
+        pagination.appendChild(pageButton(String(p), p, { active: p === page }));
+      }
+      pagination.appendChild(pageButton('Next', page + 1, { disabled: page === pages }));
+    }
+
+    var qp = new URLSearchParams(location.search);
+    var qc = qp.get('collection');
+    if (qc) {
+      var target = CANONICAL_COLLECTIONS.filter(function (c) {
+        return c.toLowerCase() === qc.trim().toLowerCase();
+      })[0];
+      if (target) filters.collection.add(target);
+    }
+
+    document.addEventListener('click', function () { closeAllPanels(); });
+
+    render();
+  })();
+</script>
 </body></html>

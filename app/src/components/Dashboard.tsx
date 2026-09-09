@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import * as Icons from 'lucide-react';
-import { Module, modules } from '../modules';
+import { moduleLink, modules } from '../modules';
 import { UserRole } from '../App';
 
 interface DashboardProps {
@@ -29,7 +29,7 @@ const Dashboard: React.FC<DashboardProps> = ({ userRole }) => {
         {visibleModules.map((module) => {
           const IconComponent = (Icons as any)[module.icon] || Icons.HelpCircle;
           return (
-            <Link key={module.id} to={`/view/${module.id}`} style={styles.card}>
+            <Link key={module.id} to={moduleLink(module)} style={styles.card}>
               <div style={styles.cardIcon}>
                 <IconComponent size={32} color="var(--color-rose-gold)" />
               </div>
@@ -45,30 +45,33 @@ const Dashboard: React.FC<DashboardProps> = ({ userRole }) => {
 
 const styles: Record<string, React.CSSProperties> = {
   container: {
-    padding: '60px 40px',
+    padding: 'clamp(28px, 5vw, 60px) clamp(20px, 4vw, 40px)',
     maxWidth: '1200px',
     margin: '0 auto',
+    width: '100%',
+    height: '100%',
+    overflowY: 'auto',
   },
   header: {
-    marginBottom: '48px',
+    marginBottom: 'clamp(28px, 5vw, 48px)',
     textAlign: 'center',
   },
   title: {
-    fontSize: '36px',
+    fontSize: 'clamp(28px, 6vw, 36px)',
     color: 'var(--color-rich-berry)',
     marginBottom: '12px',
     fontFamily: 'var(--font-serif)',
   },
   subtitle: {
-    fontSize: '18px',
+    fontSize: 'clamp(15px, 3.5vw, 18px)',
     opacity: 0.7,
     fontFamily: 'var(--font-serif)',
     fontStyle: 'italic',
   },
   grid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
-    gap: '24px',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 220px), 1fr))',
+    gap: 'clamp(16px, 3vw, 24px)',
   },
   card: {
     backgroundColor: 'var(--color-white)',

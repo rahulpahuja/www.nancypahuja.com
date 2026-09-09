@@ -73,7 +73,7 @@
         "spacing": {
                 "grid-gutter": "16px",
                 "container-padding": "24px",
-                "section-gap": "80px",
+                "section-gap": "44px",
                 "base": "8px"
         },
         "fontFamily": {
@@ -170,7 +170,7 @@
 </head>
 <body class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
 <div class="layout-container flex h-full grow flex-col">
-<div class="px-4 md:px-40 flex flex-1 justify-center py-5">
+<div class="px-4 md:px-12 flex flex-1 justify-center py-5">
 <div class="layout-content-container flex flex-col w-full max-w-[1200px] flex-1">
 <!-- TopNavBar (Shared Component) -->
 <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-outline-variant px-4 md:px-10 py-4 bg-surface-container-lowest sticky top-0 z-50">
@@ -337,10 +337,10 @@ document.addEventListener('DOMContentLoaded', () => {
 <h2 class="text-on-surface text-h2 font-bold leading-tight">Featured Collections</h2>
 <a class="text-tertiary text-button hover:underline" href="#">View All</a>
 </div>
-<div class="grid grid-cols-1 @[600px]:grid-cols-2 @[900px]:grid-cols-3 gap-grid-gutter">
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 items-start">
 <!-- Card 1 -->
-<div class="flex flex-col gap-4 group cursor-pointer">
-<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-lg overflow-hidden relative" data-alt="A high-fashion editorial shot of a woman modeling a sophisticated, heavily embroidered Rose Gold lawn suit. She is standing in a minimalist, sun-drenched architectural space with white stone walls. The lighting is crisp and bright, enhancing the ethereal, high-end feel of the garment and the overall light-mode luxury aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAF13QBmDK6IkpF3myoa-H1zbo9dUwd6JAa39yvAOl5uoqnOTFRETIXvTFhTvFpZGBH_JCsCxB6q4vhXY_vGYPaVMz_uQInmIogdZNJ6Jkoql7ivYkqOOVHWt_n7rTXzOYmGayeBf2GJ_OWjgoxFb9Dd4aTCWU-RVRbmUuQfH_qW4edF4HdKjnlDlo_ljr7wzNiutQUZ7SemuHIOb6RuBXDiSnjf-dTQQVRdlGx9dt-LtloL4YLUcqkeQBLEtiRdEAxyYZO25x7LLYR');">
+<div data-collection="Embroidered Sets" class="flex flex-col gap-3 group cursor-pointer">
+<div class="w-full bg-center bg-no-repeat bg-cover rounded-lg overflow-hidden relative aspect-[3/4]" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAF13QBmDK6IkpF3myoa-H1zbo9dUwd6JAa39yvAOl5uoqnOTFRETIXvTFhTvFpZGBH_JCsCxB6q4vhXY_vGYPaVMz_uQInmIogdZNJ6Jkoql7ivYkqOOVHWt_n7rTXzOYmGayeBf2GJ_OWjgoxFb9Dd4aTCWU-RVRbmUuQfH_qW4edF4HdKjnlDlo_ljr7wzNiutQUZ7SemuHIOb6RuBXDiSnjf-dTQQVRdlGx9dt-LtloL4YLUcqkeQBLEtiRdEAxyYZO25x7LLYR');">
 <div class="absolute inset-0 bg-inverse-surface/0 group-hover:bg-inverse-surface/10 transition-colors duration-300"></div>
 </div>
 <div class="flex flex-col gap-1 text-center">
@@ -349,8 +349,8 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 </div>
 <!-- Card 2 -->
-<div class="flex flex-col gap-4 group cursor-pointer">
-<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-lg overflow-hidden relative" data-alt="An elegant, airy photograph featuring a model draped in a pristine white Daily Lawn suit with subtle botanical prints in Graceful Blush. The background is a soft, out-of-focus garden setting bathed in bright morning light. The mood is fresh, timeless, and effortlessly chic, reflecting the premium quality of the breathable fabric." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDx59fX_LajHEelgAJaO3pYd3SE7ipvySA_G1lLCMdqLYfp_mqfSLPDw5ZiH0rjPddidANwQNcpvJcT7np3eyBJjt2MJ5X4F46SKeZMIbKpSq_x-eFWcnJo6ZcRxzSivOf4vVo2wyUejb0B4k0gYPSUVLrp-OOLYVhG82-iDyxwMXLlT13yIlZwmZm9F6AaFuvF7CsyDFMaa3__U5XgIX7tynnJycNlyVs1JKVvxdEd_-5Mdwa9HeYkhTD8ZxZ3PbDeqMJgTSfUnB00');">
+<div data-collection="Daily Lawn" class="flex flex-col gap-3 group cursor-pointer lg:mt-10">
+<div class="w-full bg-center bg-no-repeat bg-cover rounded-lg overflow-hidden relative aspect-[3/4]" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDx59fX_LajHEelgAJaO3pYd3SE7ipvySA_G1lLCMdqLYfp_mqfSLPDw5ZiH0rjPddidANwQNcpvJcT7np3eyBJjt2MJ5X4F46SKeZMIbKpSq_x-eFWcnJo6ZcRxzSivOf4vVo2wyUejb0B4k0gYPSUVLrp-OOLYVhG82-iDyxwMXLlT13yIlZwmZm9F6AaFuvF7CsyDFMaa3__U5XgIX7tynnJycNlyVs1JKVvxdEd_-5Mdwa9HeYkhTD8ZxZ3PbDeqMJgTSfUnB00');">
 <div class="absolute inset-0 bg-inverse-surface/0 group-hover:bg-inverse-surface/10 transition-colors duration-300"></div>
 </div>
 <div class="flex flex-col gap-1 text-center">
@@ -359,12 +359,32 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 </div>
 <!-- Card 3 -->
-<div class="flex flex-col gap-4 group cursor-pointer">
-<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-lg overflow-hidden relative" data-alt="A striking studio portrait of a woman wearing a rich, Deep Berry colored evening lawn ensemble with intricate Rose Gold metallic thread work. The lighting is soft but focused, creating a sophisticated, high-contrast look against a clean, light surface background. The image exudes exclusivity, luxury, and meticulous craftsmanship." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC3Y5J2ub2b7ClZAxt99GSjL5Ifjudw3G7xYgf9zmKZR__qYsSS1foB6ru80ZKVu7nEGqEbgbu43Ic0jx8FH_4RjJn9nA8Vm7ZzDUxtkt4WW0lSVXgn_WRIBMRIZYgoy0sr9lbNgaAP16EB4XjbZMRsHX8PRqjOZ0ON13j27gNOWyhxiZDqsl64Se81X5VMOkb5ePojI09pFz9m0gp4LIx2_dXPYSS1wE1C0v3Lx_gYIeWVPhI91fktpDXdabwolP4azlt-JHbHuY-I');">
+<div data-collection="Evening Elegance" class="flex flex-col gap-3 group cursor-pointer">
+<div class="w-full bg-center bg-no-repeat bg-cover rounded-lg overflow-hidden relative aspect-[3/4]" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC3Y5J2ub2b7ClZAxt99GSjL5Ifjudw3G7xYgf9zmKZR__qYsSS1foB6ru80ZKVu7nEGqEbgbu43Ic0jx8FH_4RjJn9nA8Vm7ZzDUxtkt4WW0lSVXgn_WRIBMRIZYgoy0sr9lbNgaAP16EB4XjbZMRsHX8PRqjOZ0ON13j27gNOWyhxiZDqsl64Se81X5VMOkb5ePojI09pFz9m0gp4LIx2_dXPYSS1wE1C0v3Lx_gYIeWVPhI91fktpDXdabwolP4azlt-JHbHuY-I');">
 <div class="absolute inset-0 bg-inverse-surface/0 group-hover:bg-inverse-surface/10 transition-colors duration-300"></div>
 </div>
 <div class="flex flex-col gap-1 text-center">
 <p class="text-on-surface text-body-lg font-medium leading-normal">Evening Elegance</p>
+<p class="text-tertiary text-label-caps uppercase tracking-widest">Explore</p>
+</div>
+</div>
+<!-- Card 4 -->
+<div data-collection="Summer Lawn" class="flex flex-col gap-3 group cursor-pointer lg:mt-10">
+<div class="w-full bg-center bg-no-repeat bg-cover rounded-lg overflow-hidden relative aspect-[3/4]" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDXOXEDAAEGrvfZ4MBnLvWP_gUSYPtAjRCNyMaMIN0Sj-a4i0CWGCwoSyHrtcJp13yIPYjGq0MvYCwP0-QOa5YWdmWaJxLXx0QgMltC-vXVXcNhAmjFsInjN3IKIKH41uS4Wge-f1JuPSICbYVCfOwmWOly0fksDTJoPhAxvu0T9MfrOMfoe8JLyXjnRwjY1z-MZ5B84IwzVLB9MqsaTPJ94gJw_ag5nL4wITxMYQH_fN_RAXZzT-A8d2cSZHArpVaDQ81_Fts1iRc6');">
+<div class="absolute inset-0 bg-inverse-surface/0 group-hover:bg-inverse-surface/10 transition-colors duration-300"></div>
+</div>
+<div class="flex flex-col gap-1 text-center">
+<p class="text-on-surface text-body-lg font-medium leading-normal">Summer Lawn</p>
+<p class="text-tertiary text-label-caps uppercase tracking-widest">Explore</p>
+</div>
+</div>
+<!-- Card 5 -->
+<div data-collection="Festive Edit" class="flex flex-col gap-3 group cursor-pointer">
+<div class="w-full bg-center bg-no-repeat bg-cover rounded-lg overflow-hidden relative aspect-[3/4]" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB4WvOJIpYPUffjY7ZTg3RY5Q7GR1MoKbjp8amW4PoYwWUcElkW4r8vUWAApVpxC364LcEukWB-hn4Lnkn10lQhH9ACPCmfMw8p9u0ELmUMsBOVTNNejQPJImQnrG_aTdkUJXAa8XReKx0wk23htNuEhpgQjy9e39IUIcRVb9GxYK1YoLoEJ9JwQvNZSHRyMOlohhBrsHg8biCnh5NHBXMYL4QSHDaFq0W-qmgx9fKHjifWB38BB1F02PWWQ-maLrAeUgNyHOY0zrxR');">
+<div class="absolute inset-0 bg-inverse-surface/0 group-hover:bg-inverse-surface/10 transition-colors duration-300"></div>
+</div>
+<div class="flex flex-col gap-1 text-center">
+<p class="text-on-surface text-body-lg font-medium leading-normal">Festive Edit</p>
 <p class="text-tertiary text-label-caps uppercase tracking-widest">Explore</p>
 </div>
 </div>

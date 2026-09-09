@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import * as Icons from 'lucide-react';
-import { Module } from '../modules';
+import { Module, moduleLink } from '../modules';
 import { UserRole } from '../App';
 
 interface SidebarProps {
@@ -86,7 +86,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, userRole, onLogout
                     return (
                       <li key={module.id} style={styles.listItem}>
                         <NavLink
-                          to={`/view/${module.id}`}
+                          to={moduleLink(module)}
                           onClick={() => setIsOpen(false)}
                           style={({ isActive }) => ({
                             ...styles.link,

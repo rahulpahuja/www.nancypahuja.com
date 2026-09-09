@@ -7,7 +7,12 @@ import CustomerHeader from './components/CustomerHeader';
 import Login from './components/Login';
 import LoadingScreen from './components/LoadingScreen';
 import UserProfile from './components/UserProfile';
+import ShotsIndex from './components/ShotsIndex';
+import ShotViewer from './components/ShotViewer';
+import ShotManager from './components/ShotManager';
 import { AuthProvider, useAuth } from './auth';
+import { CartProvider } from './cart/CartProvider';
+import { ShotsProvider } from './shots/ShotsProvider';
 import { modules } from './modules';
 
 import * as Icons from 'lucide-react';
@@ -22,13 +27,19 @@ const AppLayout: React.FC<{
   const location = useLocation();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   
-  const isView = location.pathname.startsWith('/view/');
+  // Prototype screens render at /view/:id (customer) or /admin/view/:id (admin).
+  const viewMatch = location.pathname.match(/^\/(?:admin\/)?view\/([^/]+)/);
+  const moduleId = viewMatch?.[1] ?? null;
+  const isView = moduleId !== null;
   const isProfile = location.pathname === '/profile';
-  const moduleId = isView ? location.pathname.split('/')[2] : null;
+  const isShots = location.pathname === '/shots' || location.pathname.startsWith('/shots/');
   const module = modules.find(m => m.id === moduleId);
-  
+
   const isUserCategory = module && module.category === 'User';
-  const showCustomerHeader = (isView && isUserCategory) || isProfile;
+  // Immersive screens are shown full-bleed with the customer chrome and an
+  // overlay hub menu instead of the persistent admin sidebar.
+  const isImmersive = Boolean(isUserCategory) || isShots;
+  const showCustomerHeader = (isView && isUserCategory) || isProfile || isShots;
 
   useEffect(() => {
     setIsSidebarOpen(false);
@@ -50,11 +61,11 @@ const AppLayout: React.FC<{
         modules={visibleModules}
         showToggle={!showCustomerHeader}
       />
-      <div 
-        className="main-content" 
+      <div
+        className="main-content"
         style={{
           ...styles.mainContent,
-          marginLeft: (isUserCategory || !isSidebarOpen) ? '0' : '280px',
+          marginLeft: (isImmersive || !isSidebarOpen) ? '0' : '280px',
         }}
       >
         {showCustomerHeader && (
@@ -71,7 +82,7 @@ const AppLayout: React.FC<{
           {children}
           
           {/* Floating Hub Toggle (Escape Hatch) */}
-          {isUserCategory && (
+          {isImmersive && (
             <button 
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}
               style={styles.floatingToggle}
@@ -103,15 +114,37 @@ const AppLayout: React.FC<{
 const App: React.FC = () => {
   return (
     <AuthProvider>
-      <AppRoutes />
+      <CartProvider>
+        <ShotsProvider>
+          <AppRoutes />
+        </ShotsProvider>
+      </CartProvider>
     </AuthProvider>
   );
 };
 
+const ROLE_STORAGE_KEY = 'np.userRole';
+
+const readStoredRole = (): UserRole => {
+  try {
+    return sessionStorage.getItem(ROLE_STORAGE_KEY) === 'Admin' ? 'Admin' : 'User';
+  } catch {
+    return 'User';
+  }
+};
+
 const AppRoutes: React.FC = () => {
   const { logout } = useAuth();
-  const [userRole, setUserRole] = useState<UserRole>('User');
+  const [userRole, setUserRole] = useState<UserRole>(readStoredRole);
   const [isAppLoading, setIsAppLoading] = useState(true);
+
+  useEffect(() => {
+    try {
+      sessionStorage.setItem(ROLE_STORAGE_KEY, userRole);
+    } catch {
+      /* session storage unavailable — role stays in memory only */
+    }
+  }, [userRole]);
 
   const handleLogin = (role: UserRole) => {
     setUserRole(role);
@@ -138,6 +171,16 @@ const AppRoutes: React.FC = () => {
                 <Route path="/" element={<Dashboard userRole={userRole} />} />
                 <Route path="/view/:moduleId" element={<ScreenShell userRole={userRole} />} />
                 <Route path="/profile" element={<UserProfile />} />
+                <Route path="/shots" element={<ShotsIndex />} />
+                <Route path="/shots/:productId" element={<ShotViewer />} />
+                <Route
+                  path="/admin/view/:moduleId"
+                  element={userRole === 'Admin' ? <ScreenShell userRole={userRole} /> : <Navigate to="/" replace />}
+                />
+                <Route
+                  path="/admin/shots"
+                  element={userRole === 'Admin' ? <ShotManager /> : <Navigate to="/" replace />}
+                />
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </AppLayout>
